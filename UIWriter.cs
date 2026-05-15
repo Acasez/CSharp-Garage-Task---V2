@@ -64,7 +64,7 @@ namespace CSharp_Garage_Task
                     handler.DisplayGarageSpaces();
                     break;
                 case "4":
-                    garage.ListVehiclesTypes();
+                    handler.ListVehiclesTypes();
                     break;
                 case "5":
                     garage.ListAllVehiclesFilterable();

@@ -104,6 +104,21 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
             }
         }
+        internal void ListVehiclesTypes()
+        {
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                int vehiclesOfType = 0;
+                for (int i = 0; i < Garage.vehicles.Length; i++)
+                {
+                    if (Garage.vehicles[i] != null && Garage.vehicles[i].VehicleType == type)
+                    {
+                        vehiclesOfType++;
+                    }
+                }
+                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s");
+            }
+        }
 
 
         internal static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)

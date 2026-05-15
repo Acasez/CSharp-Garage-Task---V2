@@ -183,21 +183,6 @@ namespace CSharp_Garage_Task
                 }
             }
         }
-        internal void ListVehiclesTypes()
-        {
-            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
-            {
-                int vehiclesOfType = 0;
-                for (int i = 0; i < vehicles.Length; i++)
-                {
-                    if (vehicles[i] != null && vehicles[i].VehicleType == type)
-                    {
-                        vehiclesOfType++;
-                    }
-                }
-                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s");
-            }
-        }
 
         internal void ListAllVehiclesFilterable()
         {
