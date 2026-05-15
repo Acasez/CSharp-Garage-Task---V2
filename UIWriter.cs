@@ -30,35 +30,13 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
-            Garage? ourGarage = null;
+            GarageHandler handler = new();
 
-            if (garageSpaces > 0)
-            {
-                ourGarage = new Garage(garageSpaces);
-            }
-            else
-            {
-                switch (garageSpaces)
-                {
-                    case -1:
-                        ourGarage = PredefinedGarages.LuxuryGarage();
-                        break;
-                    case -2:
-                        ourGarage = PredefinedGarages.HugeGarage();
-                        break;
-                    case -3:
-                        ourGarage = PredefinedGarages.SpacedGarage();
-                        break;
-                    default:
-                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                        looping = false;
-                        break;
-                }
-            }
+            looping = handler.CreateGarage(garageSpaces);
 
             while (looping)
             {
-                looping = LoopDisplay(looping, ourGarage);
+                looping = LoopDisplay(looping, handler.Garage);
             }
         }
 

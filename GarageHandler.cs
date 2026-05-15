@@ -8,8 +8,35 @@ namespace CSharp_Garage_Task
 {
     internal class GarageHandler
     {
-        public Garage? Garage { get; private set; }
+        public Garage Garage { get; private set; }
 
+        public bool CreateGarage(int garageSpaces)
+        {
+            if (garageSpaces > 0)
+            {
+                Garage = new Garage(garageSpaces);
+            }
+            else
+            {
+                switch (garageSpaces)
+                {
+                    case -1:
+                        Garage = PredefinedGarages.LuxuryGarage();
+                        break;
+                    case -2:
+                        Garage = PredefinedGarages.HugeGarage();
+                        break;
+                    case -3:
+                        Garage = PredefinedGarages.SpacedGarage();
+                        break;
+                    default:
+                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                        return false;
+                }
+            }
+
+            return true;
+        }
 
 
         internal static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
