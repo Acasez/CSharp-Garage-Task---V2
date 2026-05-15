@@ -37,11 +37,11 @@ namespace CSharp_Garage_Task
 
             while (looping)
             {
-                looping = LoopDisplay(looping, handler.Garage, handler);
+                looping = LoopDisplay(looping, handler);
             }
         }
 
-        public static bool LoopDisplay(bool looping, Garage garage, GarageHandler handler)
+        public static bool LoopDisplay(bool looping, GarageHandler handler)
         {
             Helper.WriteMessage(garageMenu);
             Console.Write("Your choice: ");
@@ -55,7 +55,7 @@ namespace CSharp_Garage_Task
                     Helper.WriteMessage("Leaving the garage");
                     break;
                 case "1":
-                    garage.AddVehicle();
+                    handler.AddVehicle();
                     break;
                 case "2":
                     handler.FindVehicleById();
