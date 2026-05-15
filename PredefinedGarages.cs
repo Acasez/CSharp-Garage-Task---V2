@@ -9,9 +9,9 @@ namespace CSharp_Garage_Task
 {
     internal class PredefinedGarages
     {
-        internal static Garage LuxuryGarage()
+        internal static Garage LuxuryGarage(GarageHandler handler)
         {
-            Garage luxuryGarage = new(5);
+            Garage luxuryGarage = new(5, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             luxuryGarage.AddPredefinedVehicle(fastCar, 0);
 
@@ -23,9 +23,9 @@ namespace CSharp_Garage_Task
             return luxuryGarage;
         }
 
-        internal static Garage HugeGarage()
+        internal static Garage HugeGarage(GarageHandler handler)
         {
-            Garage hugeGarage = new (25);
+            Garage hugeGarage = new (25, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             hugeGarage.AddPredefinedVehicle(fastCar, 0);
 
@@ -52,9 +52,9 @@ namespace CSharp_Garage_Task
             return hugeGarage;
         }
 
-        internal static Garage SpacedGarage()
+        internal static Garage SpacedGarage(GarageHandler handler)
         {
-            Garage spacedGarage = new (12);
+            Garage spacedGarage = new (12, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             spacedGarage.AddPredefinedVehicle(fastCar, 0);
 

@@ -22,8 +22,6 @@ namespace CSharp_Garage_Task
         "Type -2 for predefined huge garage. \n" +
         "Type -3 for predefined spaced garage";
 
-        GarageHandler handlerRef;
-
         public static void StartDisplay()
         {
             Helper.WriteMessage(garageStart);
@@ -80,7 +78,7 @@ namespace CSharp_Garage_Task
             return looping;
         }
 
-        internal static string? InputVehicleName(Garage garage)
+        internal static string? InputVehicleName(Garage garage, GarageHandler handler)
         {
             Helper.WriteMessage("Write register ID (6 Chars)");
             string? vehicleID = Console.ReadLine();
@@ -89,11 +87,11 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Cam't have null ID");
                 return null;
             }
-            //else if (GetVehicleByID(vehicleID) != null)
-            //{
-            //    Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
-            //    return null;
-            //}
+            else if (handler.GetVehicleByID(vehicleID) != null)
+            {
+                Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
+                return null;
+            }
             else if (vehicleID.Length != 6)
             {
                 Helper.WriteWarningMessage("Register ID should be 6 characthers long");

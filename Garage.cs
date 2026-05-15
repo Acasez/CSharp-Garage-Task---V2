@@ -21,10 +21,12 @@ namespace CSharp_Garage_Task
             Wheels
         }
         public readonly Vehicle[] vehicles;
+        public GarageHandler GarageHandler { get; private set; }
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; set; }
-        public Garage(int size)
+        public Garage(int size, GarageHandler handler)
         {
+            GarageHandler = handler;
             if (size > 0)
             {
                 GarageCapacity = size;
@@ -106,7 +108,7 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            string? vehicleID = UIWriter.InputVehicleName(this);
+            string? vehicleID = UIWriter.InputVehicleName(this, GarageHandler);
             if (vehicleID == null)
             {
                 return;
