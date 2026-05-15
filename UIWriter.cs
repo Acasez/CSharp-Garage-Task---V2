@@ -61,7 +61,7 @@ namespace CSharp_Garage_Task
                     handler.FindVehicleById();
                     break;
                 case "3":
-                    garage.DisplayGarageSpaces();
+                    handler.DisplayGarageSpaces();
                     break;
                 case "4":
                     garage.ListVehiclesTypes();

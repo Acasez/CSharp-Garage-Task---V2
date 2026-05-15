@@ -39,6 +39,22 @@ namespace CSharp_Garage_Task
             return true;
         }
 
+        public void DisplayGarageSpaces()
+        {
+            Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.vehicles.Length + " spaces.");
+            for (int i = 0; i < Garage.vehicles.Length; i++)
+            {
+                if (Garage.vehicles[i] != null)
+                {
+                    Helper.WriteMessage("Space " + i + " - " + Garage.vehicles[i].ToString());
+                }
+                else
+                {
+                    Helper.WriteMessage("Space " + i + " - No vehicles parked");
+                }
+            }
+        }
+
         public Vehicle? GetVehicleByID(string? ID)
         {
             if (ID == null)
@@ -57,7 +73,7 @@ namespace CSharp_Garage_Task
 
         internal void FindVehicleById()
         {
-            Garage.DisplayGarageSpaces();
+            DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
             string? vehicleID = Console.ReadLine();
             Vehicle? vehicle = GetVehicleByID(vehicleID);

@@ -38,22 +38,6 @@ namespace CSharp_Garage_Task
             }
         }
 
-        public void DisplayGarageSpaces()
-        {
-            Helper.WriteMessage("There are " + ParkedVehicles + " vehicles and " + vehicles.Length + " spaces.");
-            for (int i = 0; i < vehicles.Length; i++)
-            {
-                if (vehicles[i] != null)
-                {
-                    Helper.WriteMessage("Space " + i + " - " + vehicles[i].ToString());
-                }
-                else
-                {
-                    Helper.WriteMessage("Space " + i + " - No vehicles parked");
-                }
-            }
-        }
-
         public bool CheckForGarageSpace()
         {
             if (GarageCapacity > ParkedVehicles)
