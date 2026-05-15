@@ -112,5 +112,12 @@
       <FileName>UIWriter.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CSharp_Garage_Task.GarageHandler">
+    <Position X="13.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAQAAAAAAAAAAAAIAAAAAAAIAAAAhAAAAAA=</HashCode>
+      <FileName>GarageHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

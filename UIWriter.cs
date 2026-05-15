@@ -24,7 +24,6 @@ namespace CSharp_Garage_Task
 
         public static void StartDisplay()
         {
-            bool looping = true;
             Helper.WriteMessage(garageStart);
             if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
             {
@@ -32,7 +31,7 @@ namespace CSharp_Garage_Task
             }
             GarageHandler handler = new();
 
-            looping = handler.CreateGarage(garageSpaces);
+            bool looping = handler.CreateGarage(garageSpaces);
 
             while (looping)
             {
