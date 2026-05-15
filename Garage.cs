@@ -34,7 +34,6 @@ namespace CSharp_Garage_Task
             }
         }
 
-
         internal void AddPredefinedVehicle(Vehicle vehicle, int space)
         {
             vehicles[space] = vehicle;

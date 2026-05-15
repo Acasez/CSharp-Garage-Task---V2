@@ -33,8 +33,6 @@ namespace CSharp_Garage_Task
 
             bool looping = handler.CreateGarage(garageSpaces);
 
-            //handlerRef = handler;
-
             while (looping)
             {
                 looping = LoopDisplay(looping, handler);
@@ -78,7 +76,7 @@ namespace CSharp_Garage_Task
             return looping;
         }
 
-        internal static string? InputVehicleName(Garage garage, GarageHandler handler)
+        internal static string? InputVehicleName(GarageHandler handler)
         {
             Helper.WriteMessage("Write register ID (6 Chars)");
             string? vehicleID = Console.ReadLine();
