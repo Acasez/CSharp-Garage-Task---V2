@@ -11,7 +11,6 @@ namespace CSharp_Garage_Task
     {
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
-        const string vehicleFilter = "What should we filter for? \n";
 
         public enum FilterOptions
         {
@@ -180,78 +179,6 @@ namespace CSharp_Garage_Task
                 if (vehicles[i] != null && vehicles[i].VehicleType == vehicleType)
                 {
                     Helper.WriteMessage(vehicles[i].ToString());
-                }
-            }
-        }
-
-        internal void ListAllVehiclesFilterable()
-        {
-            VehicleTypes? typeFilter = null;
-            VehicleColors? colorFilter = null;
-            int? wheelCountFilter = null;
-            bool looping = true;
-            while (looping)
-            {
-                int fittingVehicles = 0;
-                GarageHandler.DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
-                for (int i = 0; i < vehicles.Length; i++)
-                {
-                    if (vehicles[i] != null)
-                    {
-                        if (typeFilter != null)
-                        {
-                            if (vehicles[i].VehicleType != typeFilter)
-                            {
-                                continue;
-                            }
-                        }
-                        if (colorFilter != null)
-                        {
-                            if (vehicles[i].Color != colorFilter)
-                            {
-                                continue;
-                            }
-                        }
-                        if (wheelCountFilter != null)
-                        {
-                            if (vehicles[i].Wheels != wheelCountFilter)
-                            {
-                                continue;
-                            }
-                        }
-                        fittingVehicles++;
-                        Helper.WriteMessage(vehicles[i].ToString());
-                    }
-                }
-                if (fittingVehicles == 0)
-                {
-                    Helper.WriteWarningMessage("No vehicles fitting filters");
-                }
-                Helper.WriteMessage(vehicleFilter);
-                FilterOptions filter = GarageHandler.GetFilterOption();
-                Helper.WriteMessage("Setup " + filter);
-                switch (filter)
-                {
-                    case FilterOptions.Exit:
-                        Helper.WriteMessage("Exiting view");
-                        looping = false;
-                        break;
-                    case FilterOptions.Type:
-                        typeFilter = GarageHandler.GetVehicleType();
-                        break;
-                    case FilterOptions.Color:
-                        colorFilter = GarageHandler.GetVehicleColor();
-                        break;
-                    case FilterOptions.Wheels:
-                        if (!int.TryParse(Console.ReadLine(), out int wheelCount))
-                        {
-                            Helper.WriteErrorMessage("Error, not a interger");
-                        }
-                        wheelCountFilter = wheelCount;
-                        break;
-                    default:
-                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                        break;
                 }
             }
         }

@@ -9,6 +9,7 @@ namespace CSharp_Garage_Task
 {
     internal class GarageHandler
     {
+        const string vehicleFilter = "What should we filter for? \n";
         public Garage Garage { get; private set; }
 
         public bool CreateGarage(int garageSpaces)
@@ -117,6 +118,78 @@ namespace CSharp_Garage_Task
                     }
                 }
                 Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s");
+            }
+        }
+
+        internal void ListAllVehiclesFilterable()
+        {
+            VehicleTypes? typeFilter = null;
+            VehicleColors? colorFilter = null;
+            int? wheelCountFilter = null;
+            bool looping = true;
+            while (looping)
+            {
+                int fittingVehicles = 0;
+                DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
+                for (int i = 0; i < Garage.vehicles.Length; i++)
+                {
+                    if (Garage.vehicles[i] != null)
+                    {
+                        if (typeFilter != null)
+                        {
+                            if (Garage.vehicles[i].VehicleType != typeFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        if (colorFilter != null)
+                        {
+                            if (Garage.vehicles[i].Color != colorFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        if (wheelCountFilter != null)
+                        {
+                            if (Garage.vehicles[i].Wheels != wheelCountFilter)
+                            {
+                                continue;
+                            }
+                        }
+                        fittingVehicles++;
+                        Helper.WriteMessage(Garage.vehicles[i].ToString());
+                    }
+                }
+                if (fittingVehicles == 0)
+                {
+                    Helper.WriteWarningMessage("No vehicles fitting filters");
+                }
+                Helper.WriteMessage(vehicleFilter);
+                FilterOptions filter = GetFilterOption();
+                Helper.WriteMessage("Setup " + filter);
+                switch (filter)
+                {
+                    case FilterOptions.Exit:
+                        Helper.WriteMessage("Exiting view");
+                        looping = false;
+                        break;
+                    case FilterOptions.Type:
+                        typeFilter = GetVehicleType();
+                        break;
+                    case FilterOptions.Color:
+                        colorFilter = GetVehicleColor();
+                        break;
+                    case FilterOptions.Wheels:
+                        if (!int.TryParse(Console.ReadLine(), out int wheelCount))
+                        {
+                            Helper.WriteErrorMessage("Error, not a interger");
+                        }
+                        wheelCountFilter = wheelCount;
+                        break;
+                    default:
+                        Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                        break;
+                }
             }
         }
 

@@ -67,7 +67,7 @@ namespace CSharp_Garage_Task
                     handler.ListVehiclesTypes();
                     break;
                 case "5":
-                    garage.ListAllVehiclesFilterable();
+                    handler.ListAllVehiclesFilterable();
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
