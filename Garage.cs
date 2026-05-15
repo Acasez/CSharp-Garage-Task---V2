@@ -7,7 +7,7 @@ using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
-    internal class Garage
+    internal class Garage//<T>: IEnumerator<T> where T : Vehicle 
     {
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
