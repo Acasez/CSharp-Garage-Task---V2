@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CSharp_Garage_Task.Garage">
+    <Position X="10" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CSharp_Garage_Task.Garage.FilterOptions">
+        <TypeIdentifier>
+          <NewMemberFileName>Garage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAAIAGQAAQAAAAAACwAAAAIAAEAAAgKCgAAgCAACAE=</HashCode>
+      <FileName>Garage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.Helper">
+    <Position X="12" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Program">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAABAAAAAI=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.PredefinedGarages">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PredefinedGarages.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Airplane">
+    <Position X="4.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>VehicleClasses\Airplane.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Boat">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VehicleClasses\Boat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Bus">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VehicleClasses\Bus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Vehicle">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CSharp_Garage_Task.VehicleClasses.Vehicle.VehicleTypes" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>VehicleClasses\Vehicle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="CSharp_Garage_Task.VehicleClasses.Vehicle.VehicleColors" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>VehicleClasses\Vehicle.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
+      <FileName>VehicleClasses\Vehicle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Car">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="CSharp_Garage_Task.VehicleClasses.Car.CarBrand" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>VehicleClasses\Car.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAEAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>VehicleClasses\Car.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CSharp_Garage_Task.VehicleClasses.Motorcycle">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VehicleClasses\Motorcycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
