@@ -20,9 +20,9 @@ namespace CSharp_Garage_Task
             Color,
             Wheels
         }
-        private readonly Vehicle[] vehicles;
+        public readonly Vehicle[] vehicles;
         public int GarageCapacity { get; private set; }
-        public int ParkedVehicles { get; private set; }
+        public int ParkedVehicles { get; set; }
         public Garage(int size)
         {
             if (size > 0)
@@ -50,22 +50,6 @@ namespace CSharp_Garage_Task
                     Helper.WriteMessage("Space " + i + " - No vehicles parked");
                 }
             }
-        }
-
-        public Vehicle? GetVehicleByID(string? ID)
-        {
-            if (ID == null)
-            {
-                return null;
-            }
-            for (int i = 0; i < vehicles.Length; i++)
-            {
-                if (vehicles[i] != null && vehicles[i].RegisterID.ToLower() == ID.ToLower())
-                {
-                    return vehicles[i];
-                }
-            }
-            return null;
         }
 
         public bool CheckForGarageSpace()
@@ -122,15 +106,9 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            Helper.WriteMessage("Write register ID");
-            string? vehicleID = Console.ReadLine();
+            string? vehicleID = UIWriter.InputVehicleName(this);
             if (vehicleID == null)
             {
-                Helper.WriteWarningMessage("Cam't have null ID");
-                return;
-            }
-            if (GetVehicleByID(vehicleID) != null) {
-                Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
                 return;
             }
 
@@ -198,40 +176,6 @@ namespace CSharp_Garage_Task
                 Helper.WriteMessage("Added vehicle " + newVehicle.ToString() + " to garage space " + garageSpace);
                 vehicles[(int)garageSpace] = newVehicle;
                 ParkedVehicles++;
-            }
-        }
-
-        internal void FindVehicleById()
-        {
-            DisplayGarageSpaces();
-            Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
-            string? vehicleID = Console.ReadLine();
-            Vehicle? vehicle = GetVehicleByID(vehicleID);
-            if (vehicle != null)
-            {
-                Helper.WriteMessage("Found vehicle " + vehicle.ToString());
-                Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
-                string ? yesNoInput = Console.ReadLine();
-                int.TryParse(yesNoInput, out int yesNoInt);
-                if (yesNoInt == 1)
-                {
-                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
-                    vehicles[vehicle.parkedNumber] = null;
-                    ParkedVehicles--;
-                }
-                else if (yesNoInt == 2)
-                {
-                    Helper.WriteMessage("Not removing vehicle");
-                }
-                else
-                {
-                    Helper.WriteErrorMessage("Invalid input");
-                }
-                return;
-            }
-            else
-            {
-                Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
             }
         }
 

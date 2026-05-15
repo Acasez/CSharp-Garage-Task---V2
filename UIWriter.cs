@@ -22,6 +22,8 @@ namespace CSharp_Garage_Task
         "Type -2 for predefined huge garage. \n" +
         "Type -3 for predefined spaced garage";
 
+        GarageHandler handlerRef;
+
         public static void StartDisplay()
         {
             Helper.WriteMessage(garageStart);
@@ -33,13 +35,15 @@ namespace CSharp_Garage_Task
 
             bool looping = handler.CreateGarage(garageSpaces);
 
+            //handlerRef = handler;
+
             while (looping)
             {
-                looping = LoopDisplay(looping, handler.Garage);
+                looping = LoopDisplay(looping, handler.Garage, handler);
             }
         }
 
-        public static bool LoopDisplay(bool looping, Garage garage)
+        public static bool LoopDisplay(bool looping, Garage garage, GarageHandler handler)
         {
             Helper.WriteMessage(garageMenu);
             Console.Write("Your choice: ");
@@ -56,7 +60,7 @@ namespace CSharp_Garage_Task
                     garage.AddVehicle();
                     break;
                 case "2":
-                    garage.FindVehicleById();
+                    handler.FindVehicleById();
                     break;
                 case "3":
                     garage.DisplayGarageSpaces();
@@ -74,6 +78,28 @@ namespace CSharp_Garage_Task
 
             Console.WriteLine();
             return looping;
+        }
+
+        internal static string? InputVehicleName(Garage garage)
+        {
+            Helper.WriteMessage("Write register ID (6 Chars)");
+            string? vehicleID = Console.ReadLine();
+            if (vehicleID == null)
+            {
+                Helper.WriteWarningMessage("Cam't have null ID");
+                return null;
+            }
+            //else if (GetVehicleByID(vehicleID) != null)
+            //{
+            //    Helper.WriteWarningMessage("Another vehicle with same ID already parked here");
+            //    return null;
+            //}
+            else if (vehicleID.Length != 6)
+            {
+                Helper.WriteWarningMessage("Register ID should be 6 characthers long");
+                return null;
+            }
+            return vehicleID;
         }
     }
 }

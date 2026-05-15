@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharp_Garage_Task.VehicleClasses;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using static CSharp_Garage_Task.Garage;
@@ -36,6 +37,56 @@ namespace CSharp_Garage_Task
             }
 
             return true;
+        }
+
+        public Vehicle? GetVehicleByID(string? ID)
+        {
+            if (ID == null)
+            {
+                return null;
+            }
+            for (int i = 0; i < Garage.vehicles.Length; i++)
+            {
+                if (Garage.vehicles[i] != null && Garage.vehicles[i].RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return Garage.vehicles[i];
+                }
+            }
+            return null;
+        }
+
+        internal void FindVehicleById()
+        {
+            Garage.DisplayGarageSpaces();
+            Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
+            string? vehicleID = Console.ReadLine();
+            Vehicle? vehicle = GetVehicleByID(vehicleID);
+            if (vehicle != null)
+            {
+                Helper.WriteMessage("Found vehicle " + vehicle.ToString());
+                Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
+                string? yesNoInput = Console.ReadLine();
+                int.TryParse(yesNoInput, out int yesNoInt);
+                if (yesNoInt == 1)
+                {
+                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
+                    Garage.vehicles[vehicle.parkedNumber] = null;
+                    Garage.ParkedVehicles--;
+                }
+                else if (yesNoInt == 2)
+                {
+                    Helper.WriteMessage("Not removing vehicle");
+                }
+                else
+                {
+                    Helper.WriteErrorMessage("Invalid input");
+                }
+                return;
+            }
+            else
+            {
+                Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
+            }
         }
 
 
