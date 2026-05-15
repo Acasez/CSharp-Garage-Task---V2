@@ -6,6 +6,8 @@ namespace CSharp_Garage_Task
 {
     internal class GarageHandler
     {
+        public Garage? Garage { get; private set; }
+
 
     }
 }

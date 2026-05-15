@@ -6,7 +6,8 @@ namespace CSharp_Garage_Task
 {
     internal class UIWriter
     {
-        const string garageMenu = "Welcome to the garage. \n" +
+        const string garageMenu = 
+        "Welcome to the garage. \n" +
         "Select an option. \n" +
         "0 = Exit \n" +
         "1 = Add vehicle \n" +
@@ -15,7 +16,8 @@ namespace CSharp_Garage_Task
         "4 = List vehicles types \n" +
         "5 = List all vehicles (filterable)";
 
-        const string garageStart = "Lets create a garage. How many spaces do you want in the garage? \n" +
+        const string garageStart = 
+        "Lets create a garage. How many spaces do you want in the garage? \n" +
         "Type -1 for predefined luxury garage. \n" +
         "Type -2 for predefined huge garage. \n" +
         "Type -3 for predefined spaced garage";
