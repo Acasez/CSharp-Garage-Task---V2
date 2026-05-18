@@ -12,7 +12,7 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> LuxuryGarage(GarageHandler handler)
         {
             Garage<Vehicle> luxuryGarage = new(5, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porsche);
             luxuryGarage.AddVehicle(fastCar, 0);
 
             Vehicle coolPlane = new Airplane("Zoom", "87", VehicleColors.Silver, VehicleTypes.Airplane, 1, 32);
@@ -26,7 +26,7 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> HugeGarage(GarageHandler handler)
         {
             Garage<Vehicle> hugeGarage = new (25, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porsche);
             hugeGarage.AddVehicle(fastCar, 0);
 
             Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1, 120);
@@ -55,7 +55,7 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> SpacedGarage(GarageHandler handler)
         {
             Garage<Vehicle> spacedGarage = new (12, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porsche);
             spacedGarage.AddVehicle(fastCar, 0);
 
             Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1, 120);

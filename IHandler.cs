@@ -30,7 +30,7 @@ namespace CSharp_Garage_Task
                 }
                 if (!int.TryParse(Helper.GetInput(), out int vehicleColorInt))
                 {
-                    Helper.WriteErrorMessage("Error, not a interger");
+                    Helper.WriteErrorMessage("Error, not an integer");
                     continue;
                 }
                 if (!Enum.IsDefined(typeof(VehicleColors), vehicleColorInt))
@@ -58,7 +58,7 @@ namespace CSharp_Garage_Task
                 if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
                 {
                     Helper.WriteErrorMessage("Invalid input, select a valid vehicle type. Try again.");
-                    continue; 
+                    continue;
                 }
 
                 return (VehicleTypes)vehicleTypeInt;
@@ -75,7 +75,7 @@ namespace CSharp_Garage_Task
                 }
                 if (!int.TryParse(Helper.GetInput(), out int vehicleFilterInt))
                 {
-                    Helper.WriteErrorMessage("Error, not a interger");
+                    Helper.WriteErrorMessage("Error, not an integer");
                     continue;
                 }
                 if (!Enum.IsDefined(typeof(FilterOptions), vehicleFilterInt))

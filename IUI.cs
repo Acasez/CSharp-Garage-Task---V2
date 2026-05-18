@@ -15,7 +15,7 @@ namespace CSharp_Garage_Task
             string? vehicleID = Console.ReadLine();
             if (vehicleID == null)
             {
-                Helper.WriteWarningMessage("Cam't have null ID");
+                Helper.WriteWarningMessage("Can't have null ID");
                 return null;
             }
             else if (handler.GetVehicleByID(vehicleID) != null)
@@ -25,7 +25,7 @@ namespace CSharp_Garage_Task
             }
             else if (vehicleID.Length != 6)
             {
-                Helper.WriteWarningMessage("Register ID should be 6 characthers long");
+                Helper.WriteWarningMessage("Register ID should be 6 characters long");
                 return null;
             }
             return vehicleID;

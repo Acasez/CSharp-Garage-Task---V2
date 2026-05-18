@@ -10,7 +10,7 @@ namespace CSharp_Garage_Task.VehicleClasses
         {
             Volvo,
             Saab,
-            Porshe,
+            Porsche,
             Toyota,
             Volkswagen,
             Ford,
@@ -38,7 +38,7 @@ namespace CSharp_Garage_Task.VehicleClasses
             }
             if (!int.TryParse(Console.ReadLine(), out int carBrandInt))
             {
-                Helper.WriteErrorMessage("Error, not a interger");
+                Helper.WriteErrorMessage("Error, not an integer");
             }
             if (!Enum.IsDefined(typeof(CarBrand), carBrandInt))
             {

@@ -69,7 +69,7 @@ namespace CSharp_Garage_Task
             string? vehicleName = Helper.GetInput();
             if (vehicleName == null)
             {
-                Helper.WriteWarningMessage("Cam't have null name");
+                Helper.WriteWarningMessage("Can't have null name");
                 return;
             }
 
@@ -194,7 +194,7 @@ namespace CSharp_Garage_Task
             }
             else
             {
-                Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
+                Helper.WriteWarningMessage("Couldn't find vehicle with that ID");
             }
         }
         public void ListVehiclesTypesOld()
@@ -270,7 +270,7 @@ namespace CSharp_Garage_Task
                     case FilterOptions.Wheels:
                         if (!int.TryParse(Helper.GetInput(), out int wheelCount))
                         {
-                            Helper.WriteErrorMessage("Error, not a interger");
+                            Helper.WriteErrorMessage("Error, not an integer");
                         }
                         wheelCountFilter = wheelCount;
                         break;
