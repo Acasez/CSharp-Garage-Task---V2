@@ -112,9 +112,9 @@ namespace CSharp_Garage_Task
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
                 int vehiclesOfType = 0;
-                for (int i = 0; i < Garage.Vehicles.Length; i++)
+                foreach (Vehicle vehicle in Garage)
                 {
-                    if (Garage.Vehicles[i] != null && Garage.Vehicles[i].VehicleType == type)
+                    if (vehicle != null && vehicle.VehicleType == type)
                     {
                         vehiclesOfType++;
                     }
@@ -256,7 +256,7 @@ namespace CSharp_Garage_Task
             }
 
             Helper.WriteMessage(vehicleColorChoice);
-            VehicleColors vehicleColor = GarageHandler.GetVehicleColor();
+            VehicleColors vehicleColor = GetVehicleColor();
             if (!Enum.IsDefined(vehicleColor))
             {
                 return;
