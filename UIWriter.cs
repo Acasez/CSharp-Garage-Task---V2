@@ -29,7 +29,7 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
-            GarageHandler handler = new();
+            IHandler handler = new GarageHandler();
 
             bool looping = handler.CreateGarage(garageSpaces);
 
@@ -39,7 +39,7 @@ namespace CSharp_Garage_Task
             }
         }
 
-        public static bool LoopDisplay(bool looping, GarageHandler handler)
+        public static bool LoopDisplay(bool looping, IHandler handler)
         {
             Helper.WriteMessage(garageMenu);
             Console.Write("Your choice: ");
@@ -76,7 +76,7 @@ namespace CSharp_Garage_Task
             return looping;
         }
 
-        internal static string? InputVehicleName(GarageHandler handler)
+        internal static string? InputVehicleName(IHandler handler)
         {
             Helper.WriteMessage("Write register ID (6 Chars)");
             string? vehicleID = Console.ReadLine();
