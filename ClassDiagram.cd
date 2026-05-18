@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="CSharp_Garage_Task.Helper">
-    <Position X="12" Y="2" Width="2.25" />
+    <Position X="11.75" Y="2" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Helper.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Program">
-    <Position X="12" Y="0.5" Width="1.5" />
+    <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
@@ -90,7 +90,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.UIWriter">
-    <Position X="12" Y="5.5" Width="1.5" />
+    <Position X="11.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAI=</HashCode>
       <FileName>UIWriter.cs</FileName>
@@ -98,7 +98,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CSharp_Garage_Task.GarageHandler">
-    <Position X="13.75" Y="3.75" Width="1.5" />
+    <Position X="13.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAEIAEQAAAAAAAAACwAAAAAAAAAAAACAgAAhCAACAA=</HashCode>
       <FileName>GarageHandler.cs</FileName>
@@ -124,10 +124,24 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="CSharp_Garage_Task.IUI">
-    <Position X="12" Y="3.75" Width="1.5" />
+    <Position X="11.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAEAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>IUI.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CSharp_Garage_Task.VehicleClasses.IVehicle">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VehicleClasses\IVehicle.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="CSharp_Garage_Task.IHandler">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAIAEQAAQAAAAAAAgAAAAIAAAAAAAIAgAABCAACAA=</HashCode>
+      <FileName>IHandler.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
