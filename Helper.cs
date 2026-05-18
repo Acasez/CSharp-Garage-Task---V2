@@ -40,5 +40,34 @@ namespace CSharp_Garage_Task
             string? input = Console.ReadLine();
             return input;
         }
+        public static int GetIntFromInput(int min, int max = 999999999)
+        {
+            while (true)
+            {
+                string? input = GetInput();
+                if (input != null)
+                {
+                    if (int.TryParse(input, out int outputInt))
+                    {
+                        if (outputInt >= min && outputInt <= max)
+                        {
+                            return outputInt;
+                        }
+                        else
+                        {
+                            WriteErrorMessage("Needs to fit within the specified options");
+                        }
+                    }
+                    else
+                    {
+                        WriteErrorMessage("Not an int, try again");
+                    }
+                }
+                else
+                {
+                    WriteErrorMessage("Invalid input, try again");
+                }
+            }
+        }
     }
 }

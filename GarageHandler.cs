@@ -43,6 +43,101 @@ namespace CSharp_Garage_Task
             return true;
         }
 
+        public void AddVehicle()
+        {
+            if (!CheckForGarageSpace())
+            {
+                Helper.WriteWarningMessage("Garage Full");
+                return;
+            }
+            int? garageSpace = GetFirstEmptySpace();
+            if (garageSpace == null)
+            {
+                Helper.WriteWarningMessage("No fitting space");
+                return;
+            }
+
+            Helper.WriteMessage(vehicleCreation);
+            VehicleTypes vehicleType = IHandler.GetVehicleType();
+            if (!Enum.IsDefined(vehicleType))
+            {
+                return;
+            }
+            Helper.WriteMessage("Creating " + vehicleType);
+
+            Helper.WriteMessage("Write vehicle name: ");
+            string? vehicleName = Helper.GetInput();
+            if (vehicleName == null)
+            {
+                Helper.WriteWarningMessage("Cam't have null name");
+                return;
+            }
+
+            string? vehicleID = IUI.InputVehicleName(this);
+            if (vehicleID == null)
+            {
+                return;
+            }
+
+            Helper.WriteMessage(vehicleColorChoice);
+            VehicleColors vehicleColor = IHandler.GetVehicleColor();
+            if (!Enum.IsDefined(vehicleColor))
+            {
+                return;
+            }
+
+            Vehicle? newVehicle = null;
+            switch (vehicleType)
+            {
+                case VehicleTypes.Car:
+                    Helper.WriteMessage("What's the car brand?");
+                    Car.CarBrand carBrand = Car.GetCarBrand();
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, carBrand);
+                    break;
+                case VehicleTypes.Motorcycle:
+                    Helper.WriteMessage("What's the top speed");
+                    int topSpeed = Helper.GetIntFromInput(0);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, topSpeed);
+                    break;
+                case VehicleTypes.Boat:
+                    Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
+                    int sailsInt = Helper.GetIntFromInput(1, 2);
+                    if (sailsInt == 1)
+                    {
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, true);
+                    }
+                    else if (sailsInt == 2)
+                    {
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, false);
+                    }
+                    else
+                    {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    break;
+                case VehicleTypes.Airplane:
+                    Helper.WriteMessage("How many flight hours do the plane have?");
+                    int flightHours = Helper.GetIntFromInput(0);
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, flightHours);
+                    break;
+                case VehicleTypes.Bus:
+                    Helper.WriteMessage("How many people does the bus fit?");
+                    if (!int.TryParse(Helper.GetInput(), out int capacity))
+                    {
+                        Helper.WriteErrorMessage("Invalid input");
+                    }
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, capacity);
+                    break;
+                default:
+                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
+                    break;
+            }
+            if (newVehicle != null)
+            {
+                Garage.AddVehicle(newVehicle, (int)garageSpace, true);
+            }
+        }
+
         public void DisplayGarageSpaces()
         {
             Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.Vehicles.Length + " spaces.");
@@ -197,108 +292,6 @@ namespace CSharp_Garage_Task
                 }
             }
             return null;
-        }
-
-        public void AddVehicle()
-        {
-            if (!CheckForGarageSpace())
-            {
-                Helper.WriteWarningMessage("Garage Full");
-                return;
-            }
-            int? garageSpace = GetFirstEmptySpace();
-            if (garageSpace == null)
-            {
-                Helper.WriteWarningMessage("No fitting space");
-                return;
-            }
-
-            Helper.WriteMessage(vehicleCreation);
-            VehicleTypes vehicleType = IHandler.GetVehicleType();
-            if (!Enum.IsDefined(vehicleType))
-            {
-                return;
-            }
-            Helper.WriteMessage("Creating " + vehicleType);
-
-            Helper.WriteMessage("Write vehicle name: ");
-            string? vehicleName = Helper.GetInput();
-            if (vehicleName == null)
-            {
-                Helper.WriteWarningMessage("Cam't have null name");
-                return;
-            }
-
-            string? vehicleID = IUI.InputVehicleName(this);
-            if (vehicleID == null)
-            {
-                return;
-            }
-
-            Helper.WriteMessage(vehicleColorChoice);
-            VehicleColors vehicleColor = IHandler.GetVehicleColor();
-            if (!Enum.IsDefined(vehicleColor))
-            {
-                return;
-            }
-
-            Vehicle? newVehicle = null;
-            switch (vehicleType)
-            {
-                case VehicleTypes.Car:
-                    Helper.WriteMessage("What's the car brand?");
-                    Car.CarBrand carBrand = Car.GetCarBrand();
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, carBrand);
-                    break;
-                case VehicleTypes.Motorcycle:
-                    Helper.WriteMessage("What's the top speed");
-                    if (!int.TryParse(Helper.GetInput(), out int topSpeed))
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, topSpeed);
-                    break;
-                case VehicleTypes.Boat:
-                    Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
-                    string? sailInput = Helper.GetInput();
-                    int.TryParse(sailInput, out int sailsInt);
-                    if (sailsInt == 1)
-                    {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, true);
-                    }
-                    else if (sailsInt == 2)
-                    {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, false);
-                    }
-                    else
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
-                    break;
-                case VehicleTypes.Airplane:
-                    Helper.WriteMessage("How many flight hours do the plane have?");
-                    if (!int.TryParse(Helper.GetInput(), out int flightHours))
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, flightHours);
-                    break;
-                case VehicleTypes.Bus:
-                    Helper.WriteMessage("How many people does the bus fit?");
-                    if (!int.TryParse(Helper.GetInput(), out int capacity))
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
-                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, capacity);
-                    break;
-                default:
-                    Helper.WriteErrorMessage("Invalid input, select a valid one.");
-                    break;
-            }
-            if (newVehicle != null)
-            {
-                Garage.AddVehicle(newVehicle, (int)garageSpace, true);
-            }
         }
 
         private static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
