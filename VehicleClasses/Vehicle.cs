@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp_Garage_Task.VehicleClasses
 {
-    abstract class Vehicle
+    abstract class Vehicle : IVehicle
     {
         public enum VehicleTypes
         {
