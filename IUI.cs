@@ -6,6 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal interface IUI
     {
-        //public static StartDisplay();
+        static abstract void StartDisplay();
+        static abstract bool LoopDisplay(bool looping, GarageHandler handler);
     }
 }
