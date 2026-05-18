@@ -17,10 +17,10 @@ namespace CSharp_Garage_Task
             Wheels
         }
         public Vehicle[] Vehicles { get; private set; }
-        public GarageHandler GarageHandler { get; private set; }
+        public IHandler GarageHandler { get; private set; }
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; set; }
-        public Garage(int size, GarageHandler handler)
+        public Garage(int size, IHandler handler)
         {
             GarageHandler = handler;
             if (size > 0)
@@ -58,7 +58,7 @@ namespace CSharp_Garage_Task
 
         internal void ListAllVehiclesOfType()
         {
-            VehicleTypes vehicleType = GarageHandler.GetVehicleType();
+            VehicleTypes vehicleType = IHandler.GetVehicleType();
 
             for (int i = 0; i < Vehicles.Length; i++)
             {
