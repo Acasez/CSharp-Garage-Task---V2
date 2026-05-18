@@ -133,33 +133,24 @@ namespace CSharp_Garage_Task
             {
                 int fittingVehicles = 0;
                 DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
-                for (int i = 0; i < Garage.Vehicles.Length; i++)
+                foreach(Vehicle vehicle in Garage)
                 {
-                    if (Garage.Vehicles[i] != null)
+                    if (vehicle != null)
                     {
-                        if (typeFilter != null)
+                        if (typeFilter != null && vehicle.VehicleType != typeFilter)
                         {
-                            if (Garage.Vehicles[i].VehicleType != typeFilter)
-                            {
-                                continue;
-                            }
+                            continue;
                         }
-                        if (colorFilter != null)
+                        if (colorFilter != null && vehicle.Color != colorFilter)
                         {
-                            if (Garage.Vehicles[i].Color != colorFilter)
-                            {
-                                continue;
-                            }
+                            continue;
                         }
-                        if (wheelCountFilter != null)
+                        if (wheelCountFilter != null && vehicle.Wheels != wheelCountFilter)
                         {
-                            if (Garage.Vehicles[i].Wheels != wheelCountFilter)
-                            {
-                                continue;
-                            }
+                            continue;
                         }
                         fittingVehicles++;
-                        Helper.WriteMessage(Garage.Vehicles[i].ToString());
+                        Helper.WriteMessage(vehicle.ToString());
                     }
                 }
                 if (fittingVehicles == 0)
@@ -320,7 +311,6 @@ namespace CSharp_Garage_Task
                 Garage.AddVehicle(newVehicle, (int)garageSpace, true);
             }
         }
-
 
         internal static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
         {
