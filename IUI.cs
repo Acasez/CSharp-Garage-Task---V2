@@ -9,7 +9,7 @@ namespace CSharp_Garage_Task
         static abstract void StartDisplay();
         static abstract bool LoopDisplay(bool looping, IHandler handler);
 
-        internal static string? InputVehicleName(IHandler handler)
+        internal static string? InputVehicleID(IHandler handler)
         {
             Helper.WriteMessage("Write register ID (6 Chars)");
             string? vehicleID = Console.ReadLine();

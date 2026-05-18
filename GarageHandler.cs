@@ -73,7 +73,7 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            string? vehicleID = IUI.InputVehicleName(this);
+            string? vehicleID = IUI.InputVehicleID(this);
             if (vehicleID == null)
             {
                 return;
@@ -122,10 +122,7 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Bus:
                     Helper.WriteMessage("How many people does the bus fit?");
-                    if (!int.TryParse(Helper.GetInput(), out int capacity))
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
+                    int capacity = Helper.GetIntFromInput(0);
                     newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, capacity);
                     break;
                 default:
@@ -182,8 +179,7 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteMessage("Found vehicle " + vehicle.ToString());
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
-                string? yesNoInput = Helper.GetInput();
-                int.TryParse(yesNoInput, out int yesNoInt);
+                int yesNoInt = Helper.GetIntFromInput(1, 2);
                 if (yesNoInt == 1)
                 {
                     Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
@@ -193,10 +189,6 @@ namespace CSharp_Garage_Task
                 else if (yesNoInt == 2)
                 {
                     Helper.WriteMessage("Not removing vehicle");
-                }
-                else
-                {
-                    Helper.WriteErrorMessage("Invalid input");
                 }
                 return;
             }
