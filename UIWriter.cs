@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CSharp_Garage_Task
 {
-    internal class UIWriter
+    internal class UIWriter : IUI
     {
         const string garageMenu = 
         "Welcome to the garage. \n" +
