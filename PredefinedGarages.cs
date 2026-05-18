@@ -2,16 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static CSharp_Garage_Task.Garage;
+using static CSharp_Garage_Task.Garage<CSharp_Garage_Task.VehicleClasses.Vehicle>;
 using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
     internal class PredefinedGarages
     {
-        internal static Garage LuxuryGarage(GarageHandler handler)
+        internal static Garage<Vehicle> LuxuryGarage(GarageHandler handler)
         {
-            Garage luxuryGarage = new(5, handler);
+            Garage<Vehicle> luxuryGarage = new(5, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             luxuryGarage.AddPredefinedVehicle(fastCar, 0);
 
@@ -23,9 +23,9 @@ namespace CSharp_Garage_Task
             return luxuryGarage;
         }
 
-        internal static Garage HugeGarage(GarageHandler handler)
+        internal static Garage<Vehicle> HugeGarage(GarageHandler handler)
         {
-            Garage hugeGarage = new (25, handler);
+            Garage<Vehicle> hugeGarage = new (25, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             hugeGarage.AddPredefinedVehicle(fastCar, 0);
 
@@ -52,9 +52,9 @@ namespace CSharp_Garage_Task
             return hugeGarage;
         }
 
-        internal static Garage SpacedGarage(GarageHandler handler)
+        internal static Garage<Vehicle> SpacedGarage(GarageHandler handler)
         {
-            Garage spacedGarage = new (12, handler);
+            Garage<Vehicle> spacedGarage = new (12, handler);
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             spacedGarage.AddPredefinedVehicle(fastCar, 0);
 

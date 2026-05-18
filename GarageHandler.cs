@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using static CSharp_Garage_Task.Garage;
+using static CSharp_Garage_Task.Garage<CSharp_Garage_Task.VehicleClasses.Vehicle>;
 using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
@@ -12,13 +12,13 @@ namespace CSharp_Garage_Task
         const string vehicleFilter = "What should we filter for? \n";
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
         const string vehicleColorChoice = "What color should our vehicle be? \n";
-        public Garage Garage { get; private set; }
+        public Garage<Vehicle> Garage { get; private set; }
 
         public bool CreateGarage(int garageSpaces)
         {
             if (garageSpaces > 0)
             {
-                Garage = new Garage(garageSpaces, this);
+                Garage = new Garage<Vehicle>(garageSpaces, this);
             }
             else
             {
@@ -44,12 +44,12 @@ namespace CSharp_Garage_Task
 
         public void DisplayGarageSpaces()
         {
-            Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.vehicles.Length + " spaces.");
-            for (int i = 0; i < Garage.vehicles.Length; i++)
+            Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.Vehicles.Length + " spaces.");
+            for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
-                if (Garage.vehicles[i] != null)
+                if (Garage.Vehicles[i] != null)
                 {
-                    Helper.WriteMessage("Space " + i + " - " + Garage.vehicles[i].ToString());
+                    Helper.WriteMessage("Space " + i + " - " + Garage.Vehicles[i].ToString());
                 }
                 else
                 {
@@ -64,11 +64,11 @@ namespace CSharp_Garage_Task
             {
                 return null;
             }
-            for (int i = 0; i < Garage.vehicles.Length; i++)
+            for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
-                if (Garage.vehicles[i] != null && Garage.vehicles[i].RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase))
+                if (Garage.Vehicles[i] != null && Garage.Vehicles[i].RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    return Garage.vehicles[i];
+                    return Garage.Vehicles[i];
                 }
             }
             return null;
@@ -89,7 +89,7 @@ namespace CSharp_Garage_Task
                 if (yesNoInt == 1)
                 {
                     Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
-                    Garage.vehicles[vehicle.parkedNumber] = null;
+                    Garage.Vehicles[vehicle.parkedNumber] = null;
                     Garage.ParkedVehicles--;
                 }
                 else if (yesNoInt == 2)
@@ -112,9 +112,9 @@ namespace CSharp_Garage_Task
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
                 int vehiclesOfType = 0;
-                for (int i = 0; i < Garage.vehicles.Length; i++)
+                for (int i = 0; i < Garage.Vehicles.Length; i++)
                 {
-                    if (Garage.vehicles[i] != null && Garage.vehicles[i].VehicleType == type)
+                    if (Garage.Vehicles[i] != null && Garage.Vehicles[i].VehicleType == type)
                     {
                         vehiclesOfType++;
                     }
@@ -133,33 +133,33 @@ namespace CSharp_Garage_Task
             {
                 int fittingVehicles = 0;
                 DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
-                for (int i = 0; i < Garage.vehicles.Length; i++)
+                for (int i = 0; i < Garage.Vehicles.Length; i++)
                 {
-                    if (Garage.vehicles[i] != null)
+                    if (Garage.Vehicles[i] != null)
                     {
                         if (typeFilter != null)
                         {
-                            if (Garage.vehicles[i].VehicleType != typeFilter)
+                            if (Garage.Vehicles[i].VehicleType != typeFilter)
                             {
                                 continue;
                             }
                         }
                         if (colorFilter != null)
                         {
-                            if (Garage.vehicles[i].Color != colorFilter)
+                            if (Garage.Vehicles[i].Color != colorFilter)
                             {
                                 continue;
                             }
                         }
                         if (wheelCountFilter != null)
                         {
-                            if (Garage.vehicles[i].Wheels != wheelCountFilter)
+                            if (Garage.Vehicles[i].Wheels != wheelCountFilter)
                             {
                                 continue;
                             }
                         }
                         fittingVehicles++;
-                        Helper.WriteMessage(Garage.vehicles[i].ToString());
+                        Helper.WriteMessage(Garage.Vehicles[i].ToString());
                     }
                 }
                 if (fittingVehicles == 0)
@@ -209,9 +209,9 @@ namespace CSharp_Garage_Task
 
         public int? GetFirstEmptySpace()
         {
-            for (int i = 0; i < Garage.vehicles.Length; i++)
+            for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
-                if (Garage.vehicles[i] == null)
+                if (Garage.Vehicles[i] == null)
                 {
                     return i;
                 }
@@ -234,7 +234,7 @@ namespace CSharp_Garage_Task
             }
 
             Helper.WriteMessage(vehicleCreation);
-            VehicleTypes vehicleType = GarageHandler.GetVehicleType();
+            VehicleTypes vehicleType = GetVehicleType();
             if (!Enum.IsDefined(vehicleType))
             {
                 return;
@@ -318,7 +318,7 @@ namespace CSharp_Garage_Task
             if (newVehicle != null)
             {
                 Helper.WriteMessage("Added vehicle " + newVehicle.ToString() + " to garage space " + garageSpace);
-                Garage.vehicles[(int)garageSpace] = newVehicle;
+                Garage.Vehicles[(int)garageSpace] = newVehicle;
                 Garage.ParkedVehicles++;
             }
         }

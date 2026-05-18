@@ -7,7 +7,7 @@ using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
-    internal class Garage//<T>: IEnumerator<T> where T : Vehicle 
+    internal class Garage <T>: IEnumerable<T> where T : Vehicle 
     {
         public enum FilterOptions
         {
@@ -16,7 +16,7 @@ namespace CSharp_Garage_Task
             Color,
             Wheels
         }
-        public readonly Vehicle[] vehicles;
+        public Vehicle[] Vehicles { get; private set; }
         public GarageHandler GarageHandler { get; private set; }
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; set; }
@@ -26,17 +26,29 @@ namespace CSharp_Garage_Task
             if (size > 0)
             {
                 GarageCapacity = size;
-                vehicles = new Vehicle[size];
+                Vehicles = new Vehicle[size];
             }
             else
             {
                 throw new ArgumentException("Garage cannot be smaller than 0");
             }
         }
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (Vehicle v in this.Vehicles)
+            {
+                yield return (T)v;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
 
         internal void AddPredefinedVehicle(Vehicle vehicle, int space)
         {
-            vehicles[space] = vehicle;
+            Vehicles[space] = vehicle;
             ParkedVehicles ++;
         }
 
@@ -44,13 +56,63 @@ namespace CSharp_Garage_Task
         {
             VehicleTypes vehicleType = GarageHandler.GetVehicleType();
 
-            for (int i = 0; i < vehicles.Length; i++)
+            for (int i = 0; i < Vehicles.Length; i++)
             {
-                if (vehicles[i] != null && vehicles[i].VehicleType == vehicleType)
+                if (Vehicles[i] != null && Vehicles[i].VehicleType == vehicleType)
                 {
-                    Helper.WriteMessage(vehicles[i].ToString());
+                    Helper.WriteMessage(Vehicles[i].ToString());
                 }
             }
         }
     }
+
+    /*internal class GarageNew<T> : IEnumerable<T> where T: Vehicle
+{
+
+  private Vehicle[] vehicles;
+
+  public Vehicle[] Vehicles
+  {
+    get {return vehicles;}
+    set
+    {
+      vehicles = value;
+    }
+  }
+
+  internal GarageNew(int sizeOfGarage)
+  {
+    Vehicles = new Vehicle[sizeOfGarage];
+  }
+
+  public void AddNewVehicle(Vehicle newVehicle)
+  {
+    for (int i = 0; i <= Vehicles.Length; i++)
+    {
+      if (Vehicles[i] == null)
+      {
+        Vehicles[i] = newVehicle;
+        Console.WriteLine("Vehicle was added successfully!");
+        return;
+      }
+      else
+      {
+        continue;
+      }
+    }
+  }
+
+  public IEnumerator<T> GetEnumerator()
+  {
+    foreach (Vehicle v in this.Vehicles)
+    {
+      yield return (T)v;
+    }
+  }
+
+  IEnumerator IEnumerable.GetEnumerator()
+  {
+    return GetEnumerator();
+  }
+}*/
 }
