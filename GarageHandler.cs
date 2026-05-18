@@ -240,7 +240,7 @@ namespace CSharp_Garage_Task
                 return;
             }
 
-            string? vehicleID = UIWriter.InputVehicleName(this);
+            string? vehicleID = IUI.InputVehicleName(this);
             if (vehicleID == null)
             {
                 return;
