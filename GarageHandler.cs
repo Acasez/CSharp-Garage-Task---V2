@@ -142,7 +142,7 @@ namespace CSharp_Garage_Task
             {
                 if (Garage.Vehicles[i] != null)
                 {
-                    Helper.WriteMessage("Space " + i + " - " + Garage.Vehicles[i].ToString());
+                    Helper.WriteMessage("Space " + i + " - " + Garage.Vehicles[i]);
                 }
                 else
                 {
@@ -177,12 +177,12 @@ namespace CSharp_Garage_Task
             Vehicle? vehicle = GetVehicleByID(vehicleID);
             if (vehicle != null)
             {
-                Helper.WriteMessage("Found vehicle " + vehicle.ToString());
+                Helper.WriteMessage("Found vehicle " + vehicle);
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
                 int yesNoInt = Helper.GetIntFromInput(1, 2);
                 if (yesNoInt == 1)
                 {
-                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
+                    Helper.WriteMessage("Removed vehicle " + vehicle, ConsoleColor.Yellow);
                     Garage.Vehicles[vehicle.parkedNumber] = null;
                     Garage.ParkedVehicles--;
                 }
@@ -190,7 +190,6 @@ namespace CSharp_Garage_Task
                 {
                     Helper.WriteMessage("Not removing vehicle");
                 }
-                return;
             }
             else
             {
@@ -210,10 +209,10 @@ namespace CSharp_Garage_Task
                         vehiclesOfType.Add(vehicle);
                     }
                 }
-                Helper.WriteMessage("There are " + vehiclesOfType.Count + " " + type.ToString() + "s");
+                Helper.WriteMessage("There are " + vehiclesOfType.Count + " " + type + "s");
                 foreach(Vehicle vehicle in vehiclesOfType)
                 {
-                    Helper.WriteMessage(" - " + vehicle.ToString());
+                    Helper.WriteMessage(" - " + vehicle);
                 }
             }
         }
@@ -227,7 +226,7 @@ namespace CSharp_Garage_Task
                 Helper.WriteMessage("There are " + type.Count() + " " + type.Key + "s");
                 foreach (var vehicle in type)
                 {
-                    Helper.WriteMessage(" - " + vehicle.ToString());
+                    Helper.WriteMessage(" - " + vehicle);
                 }
             }
         }
