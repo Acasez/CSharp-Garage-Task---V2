@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Text;
 
 namespace CSharp_Garage_Task
@@ -29,6 +30,15 @@ namespace CSharp_Garage_Task
         public static void WriteMessage(string text)
         {
             WriteMessage(text, ConsoleColor.White);
+        }
+
+        public static string? GetInput()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(">");
+            Console.ResetColor();
+            string? input = Console.ReadLine();
+            return input;
         }
     }
 }

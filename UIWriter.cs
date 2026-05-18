@@ -25,7 +25,7 @@ namespace CSharp_Garage_Task
         public static void StartDisplay()
         {
             Helper.WriteMessage(garageStart);
-            if (!int.TryParse(Console.ReadLine(), out int garageSpaces))
+            if (!int.TryParse(Helper.GetInput(), out int garageSpaces))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
@@ -42,9 +42,8 @@ namespace CSharp_Garage_Task
         public static bool LoopDisplay(bool looping, IHandler handler)
         {
             Helper.WriteMessage(garageMenu);
-            Console.Write("Your choice: ");
 
-            string? input = Console.ReadLine();
+            string? input = Helper.GetInput();
 
             switch (input)
             {

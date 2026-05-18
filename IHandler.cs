@@ -26,7 +26,7 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteMessage((int)type + ": Color " + type.ToString());
             }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleColorInt))
+            if (!int.TryParse(Helper.GetInput(), out int vehicleColorInt))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
@@ -43,7 +43,7 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteMessage((int)type + ": " + type.ToString());
             }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleTypeInt))
+            if (!int.TryParse(Helper.GetInput(), out int vehicleTypeInt))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }
@@ -60,7 +60,7 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteMessage((int)type + (type == 0 ? ": " : ": Vehicle ") + type.ToString());
             }
-            if (!int.TryParse(Console.ReadLine(), out int vehicleFilterInt))
+            if (!int.TryParse(Helper.GetInput(), out int vehicleFilterInt))
             {
                 Helper.WriteErrorMessage("Error, not a interger");
             }

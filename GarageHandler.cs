@@ -78,13 +78,13 @@ namespace CSharp_Garage_Task
         {
             DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
-            string? vehicleID = Console.ReadLine();
+            string? vehicleID = Helper.GetInput();
             Vehicle? vehicle = GetVehicleByID(vehicleID);
             if (vehicle != null)
             {
                 Helper.WriteMessage("Found vehicle " + vehicle.ToString());
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
-                string? yesNoInput = Console.ReadLine();
+                string? yesNoInput = Helper.GetInput();
                 int.TryParse(yesNoInput, out int yesNoInt);
                 if (yesNoInt == 1)
                 {
@@ -159,7 +159,7 @@ namespace CSharp_Garage_Task
                         colorFilter = IHandler.GetVehicleColor();
                         break;
                     case FilterOptions.Wheels:
-                        if (!int.TryParse(Console.ReadLine(), out int wheelCount))
+                        if (!int.TryParse(Helper.GetInput(), out int wheelCount))
                         {
                             Helper.WriteErrorMessage("Error, not a interger");
                         }
@@ -219,7 +219,7 @@ namespace CSharp_Garage_Task
             Helper.WriteMessage("Creating " + vehicleType);
 
             Helper.WriteMessage("Write vehicle name: ");
-            string? vehicleName = Console.ReadLine();
+            string? vehicleName = Helper.GetInput();
             if (vehicleName == null)
             {
                 Helper.WriteWarningMessage("Cam't have null name");
@@ -249,7 +249,7 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Motorcycle:
                     Helper.WriteMessage("What's the top speed");
-                    if (!int.TryParse(Console.ReadLine(), out int topSpeed))
+                    if (!int.TryParse(Helper.GetInput(), out int topSpeed))
                     {
                         Helper.WriteErrorMessage("Invalid input");
                     }
@@ -257,7 +257,7 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Boat:
                     Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
-                    string? sailInput = Console.ReadLine();
+                    string? sailInput = Helper.GetInput();
                     int.TryParse(sailInput, out int sailsInt);
                     if (sailsInt == 1)
                     {
@@ -274,7 +274,7 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");
-                    if (!int.TryParse(Console.ReadLine(), out int flightHours))
+                    if (!int.TryParse(Helper.GetInput(), out int flightHours))
                     {
                         Helper.WriteErrorMessage("Invalid input");
                     }
@@ -282,7 +282,7 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Bus:
                     Helper.WriteMessage("How many people does the bus fit?");
-                    if (!int.TryParse(Console.ReadLine(), out int capacity))
+                    if (!int.TryParse(Helper.GetInput(), out int capacity))
                     {
                         Helper.WriteErrorMessage("Invalid input");
                     }
