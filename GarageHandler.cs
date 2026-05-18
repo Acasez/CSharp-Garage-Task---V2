@@ -197,19 +197,38 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
             }
         }
-        public void ListVehiclesTypes()
+        public void ListVehiclesTypesOld()
         {
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
-                int vehiclesOfType = 0;
+                List<Vehicle> vehiclesOfType = [];
+
                 foreach (Vehicle vehicle in Garage)
                 {
                     if (vehicle != null && vehicle.VehicleType == type)
                     {
-                        vehiclesOfType++;
+                        vehiclesOfType.Add(vehicle);
                     }
                 }
-                Helper.WriteMessage("There are " + vehiclesOfType + " " + type.ToString() + "s");
+                Helper.WriteMessage("There are " + vehiclesOfType.Count + " " + type.ToString() + "s");
+                foreach(Vehicle vehicle in vehiclesOfType)
+                {
+                    Helper.WriteMessage(" - " + vehicle.ToString());
+                }
+            }
+        }
+
+        public void ListVehiclesTypes()
+        {
+            var vehiclesByType = Garage.Where(v => v != null).GroupBy(v => v.VehicleType).OrderBy(g => g.Key);
+
+            foreach (var type in vehiclesByType)
+            {
+                Helper.WriteMessage("There are " + type.Count() + " " + type.Key + "s");
+                foreach (var vehicle in type)
+                {
+                    Helper.WriteMessage(" - " + vehicle.ToString());
+                }
             }
         }
 
