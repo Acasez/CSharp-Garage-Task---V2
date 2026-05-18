@@ -108,16 +108,18 @@
   <Class Name="CSharp_Garage_Task.UIWriter">
     <Position X="12" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAQAAAAAEAAAAAQAAAAAAAAAAAI=</HashCode>
       <FileName>UIWriter.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="CSharp_Garage_Task.GarageHandler">
     <Position X="13.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAQAAAAAAAAAAAAIAAAAAAAIAAAAhAAAAAA=</HashCode>
+      <HashCode>AIAEIAEQAAQAAAAAACwAAAAIAAAAAAAKAgAAhCAACAA=</HashCode>
       <FileName>GarageHandler.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

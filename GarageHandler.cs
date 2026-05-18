@@ -7,7 +7,7 @@ using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
 namespace CSharp_Garage_Task
 {
-    internal class GarageHandler
+    internal class GarageHandler : IHandler
     {
         const string vehicleFilter = "What should we filter for? \n";
         const string vehicleCreation = "Lets create a vehicle. What type do you want?";
@@ -74,7 +74,7 @@ namespace CSharp_Garage_Task
             return null;
         }
 
-        internal void FindVehicleById()
+        public void FindVehicleById()
         {
             DisplayGarageSpaces();
             Helper.WriteMessage("Enter the ID of the vehicle you wish to find");
@@ -107,7 +107,7 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
             }
         }
-        internal void ListVehiclesTypes()
+        public void ListVehiclesTypes()
         {
             foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
             {
@@ -123,7 +123,7 @@ namespace CSharp_Garage_Task
             }
         }
 
-        internal void ListAllVehiclesFilterable()
+        public void ListAllVehiclesFilterable()
         {
             VehicleTypes? typeFilter = null;
             VehicleColors? colorFilter = null;
@@ -312,7 +312,7 @@ namespace CSharp_Garage_Task
             }
         }
 
-        internal static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
+        private static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
         {
             if (typeFilter == null && colorFilter == null && wheelCountFilter == null)
             {
@@ -333,7 +333,7 @@ namespace CSharp_Garage_Task
         }
 
         #region Filters
-        internal static VehicleColors GetVehicleColor()
+        private static VehicleColors GetVehicleColor()
         {
             foreach (VehicleColors type in Enum.GetValues<VehicleColors>())
             {
@@ -367,7 +367,7 @@ namespace CSharp_Garage_Task
             return (VehicleTypes)vehicleTypeInt;
         }
 
-        internal static FilterOptions GetFilterOption()
+        private static FilterOptions GetFilterOption()
         {
             foreach (FilterOptions type in Enum.GetValues<FilterOptions>())
             {
