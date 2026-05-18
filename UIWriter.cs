@@ -6,7 +6,7 @@ namespace CSharp_Garage_Task
 {
     internal class UIWriter : IUI
     {
-        const string garageMenu = 
+        const string garageMenu =
         "Welcome to the garage. \n" +
         "Select an option. \n" +
         "0 = Exit \n" +
@@ -16,18 +16,19 @@ namespace CSharp_Garage_Task
         "4 = List vehicles types \n" +
         "5 = List all vehicles (filterable)";
 
-        const string garageStart = 
-        "Lets create a garage. How many spaces do you want in the garage? \n" +
-        "Type -1 for predefined luxury garage. \n" +
-        "Type -2 for predefined huge garage. \n" +
-        "Type -3 for predefined spaced garage";
+        const string garageStart =
+        "Let's create a garage. How many spots do you want?\n" +
+        "Or pick a preset:\n" +
+        "  -1: Luxury (5 spots — Porsche, airplane, yacht)\n" +
+        "  -2: Huge (25 spots, 8 vehicles)\n" +
+        "  -3: Sparse (12 spots, 6 vehicles in non-contiguous slots)";
 
         public static void StartDisplay()
         {
             Helper.WriteMessage(garageStart);
             if (!int.TryParse(Helper.GetInput(), out int garageSpaces))
             {
-                Helper.WriteErrorMessage("Error, not a interger");
+                Helper.WriteErrorMessage("Error, not an integer");
             }
             IHandler handler = new GarageHandler();
 
