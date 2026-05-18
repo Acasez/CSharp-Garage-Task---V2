@@ -131,28 +131,14 @@ namespace CSharp_Garage_Task
             bool looping = true;
             while (looping)
             {
-                int fittingVehicles = 0;
                 DisplayCurrentFilters(typeFilter, colorFilter, wheelCountFilter);
-                foreach(Vehicle vehicle in Garage)
-                {
-                    if (vehicle != null)
-                    {
-                        if (typeFilter != null && vehicle.VehicleType != typeFilter)
-                        {
-                            continue;
-                        }
-                        if (colorFilter != null && vehicle.Color != colorFilter)
-                        {
-                            continue;
-                        }
-                        if (wheelCountFilter != null && vehicle.Wheels != wheelCountFilter)
-                        {
-                            continue;
-                        }
-                        fittingVehicles++;
-                        Helper.WriteMessage(vehicle.ToString());
-                    }
-                }
+                List<Vehicle>? filteredVehicles = Garage.Where(v => v != null)
+                    .Where(v => typeFilter == null || v.VehicleType == typeFilter)
+                    .Where(v => colorFilter == null || v.Color == colorFilter)
+                    .Where(v => wheelCountFilter == null || v.Wheels == wheelCountFilter).ToList();
+
+                filteredVehicles.ForEach(v => Helper.WriteMessage(v.ToString()));
+                int fittingVehicles = filteredVehicles.Count;
                 if (fittingVehicles == 0)
                 {
                     Helper.WriteWarningMessage("No vehicles fitting filters");
