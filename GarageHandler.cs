@@ -64,11 +64,11 @@ namespace CSharp_Garage_Task
             {
                 return null;
             }
-            for (int i = 0; i < Garage.Vehicles.Length; i++)
+            foreach (Vehicle vehicle in Garage)
             {
-                if (Garage.Vehicles[i] != null && Garage.Vehicles[i].RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase))
+                if (vehicle != null && vehicle.RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase))
                 {
-                    return Garage.Vehicles[i];
+                    return vehicle;
                 }
             }
             return null;
