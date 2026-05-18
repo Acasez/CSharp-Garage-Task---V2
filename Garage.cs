@@ -46,8 +46,12 @@ namespace CSharp_Garage_Task
             return GetEnumerator();
         }
 
-        internal void AddPredefinedVehicle(Vehicle vehicle, int space)
+        internal void AddVehicle(Vehicle vehicle, int space, bool log = false)
         {
+            if (log)
+            {
+                Helper.WriteMessage("Added vehicle " + vehicle.ToString() + " to garage space " + space);
+            }
             Vehicles[space] = vehicle;
             ParkedVehicles ++;
         }

@@ -317,9 +317,7 @@ namespace CSharp_Garage_Task
             }
             if (newVehicle != null)
             {
-                Helper.WriteMessage("Added vehicle " + newVehicle.ToString() + " to garage space " + garageSpace);
-                Garage.Vehicles[(int)garageSpace] = newVehicle;
-                Garage.ParkedVehicles++;
+                Garage.AddVehicle(newVehicle, (int)garageSpace, true);
             }
         }
 
