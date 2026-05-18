@@ -32,7 +32,7 @@ namespace CSharp_Garage_Task.VehicleClasses
 
         internal static CarBrand GetCarBrand()
         {
-            foreach (CarBrand type in Enum.GetValues<VehicleTypes>())
+            foreach (CarBrand type in Enum.GetValues<CarBrand>())
             {
                 Helper.WriteMessage((int)type + ": " + type.ToString());
             }

@@ -22,7 +22,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Airplane">
-    <Position X="4.75" Y="3.75" Width="1.5" />
+    <Position X="4.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>VehicleClasses\Airplane.cs</FileName>
@@ -66,12 +66,12 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Car">
-    <Position X="4.75" Y="0.5" Width="1.5" />
+    <Position X="3" Y="1.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Enum Name="CSharp_Garage_Task.VehicleClasses.Car.CarBrand" Collapsed="true">
+      <Enum Name="CSharp_Garage_Task.VehicleClasses.Car.CarBrand">
         <TypeIdentifier>
           <NewMemberFileName>VehicleClasses\Car.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -83,14 +83,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Motorcycle">
-    <Position X="4.75" Y="5.75" Width="1.5" />
+    <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleClasses\Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.UIWriter">
-    <Position X="12" Y="5.25" Width="1.5" />
+    <Position X="12" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAI=</HashCode>
       <FileName>UIWriter.cs</FileName>
