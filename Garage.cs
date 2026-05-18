@@ -35,9 +35,9 @@ namespace CSharp_Garage_Task
         }
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (Vehicle v in this.Vehicles)
+            foreach (Vehicle vehicle in Vehicles)
             {
-                yield return (T)v;
+                yield return (T)vehicle;
             }
         }
 
@@ -65,54 +65,4 @@ namespace CSharp_Garage_Task
             }
         }
     }
-
-    /*internal class GarageNew<T> : IEnumerable<T> where T: Vehicle
-{
-
-  private Vehicle[] vehicles;
-
-  public Vehicle[] Vehicles
-  {
-    get {return vehicles;}
-    set
-    {
-      vehicles = value;
-    }
-  }
-
-  internal GarageNew(int sizeOfGarage)
-  {
-    Vehicles = new Vehicle[sizeOfGarage];
-  }
-
-  public void AddNewVehicle(Vehicle newVehicle)
-  {
-    for (int i = 0; i <= Vehicles.Length; i++)
-    {
-      if (Vehicles[i] == null)
-      {
-        Vehicles[i] = newVehicle;
-        Console.WriteLine("Vehicle was added successfully!");
-        return;
-      }
-      else
-      {
-        continue;
-      }
-    }
-  }
-
-  public IEnumerator<T> GetEnumerator()
-  {
-    foreach (Vehicle v in this.Vehicles)
-    {
-      yield return (T)v;
-    }
-  }
-
-  IEnumerator IEnumerable.GetEnumerator()
-  {
-    return GetEnumerator();
-  }
-}*/
 }
