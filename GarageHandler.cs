@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using static CSharp_Garage_Task.Garage<CSharp_Garage_Task.VehicleClasses.Vehicle>;
 using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
@@ -72,6 +73,8 @@ namespace CSharp_Garage_Task
                 }
             }
             return null;
+            //Could do this but I think the foreach loop is easier to read
+            //return (from vehicle in Garage where vehicle != null && vehicle.RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase) select vehicle).FirstOrDefault();
         }
 
         public void FindVehicleById()
