@@ -250,7 +250,8 @@ namespace CSharp_Garage_Task
                 List<Vehicle>? filteredVehicles = Garage.Where(v => v != null)
                     .Where(v => typeFilter == null || v.VehicleType == typeFilter)
                     .Where(v => colorFilter == null || v.Color == colorFilter)
-                    .Where(v => wheelCountFilter == null || v.Wheels == wheelCountFilter).ToList();
+                    .Where(v => wheelCountFilter == null || v.Wheels == wheelCountFilter)
+                    .DistinctBy(v => v.RegisterID).ToList();
 
                 filteredVehicles.ForEach(v => Helper.WriteMessage(v.ToString(true)));
                 int fittingVehicles = filteredVehicles.Count;
