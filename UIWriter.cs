@@ -14,7 +14,8 @@ namespace CSharp_Garage_Task
         "2 = Find/Remove vehicle \n" +
         "3 = List garage spaces \n" +
         "4 = List vehicles types \n" +
-        "5 = List all vehicles (filterable)";
+        "5 = List all vehicles (filterable) \n" +
+        "6 = Get Largest empty lot";
 
         const string garageStart =
         "Let's create a garage. How many spots do you want?\n" +
@@ -66,6 +67,10 @@ namespace CSharp_Garage_Task
                     break;
                 case "5":
                     handler.ListAllVehiclesFilterable();
+                    break;
+                case "6":
+                    int lotSize = handler.GetLargestEmptyLot();
+                    Helper.WriteMessage("Largest empty lot is " + lotSize);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");

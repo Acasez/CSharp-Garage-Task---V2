@@ -308,6 +308,28 @@ namespace CSharp_Garage_Task
             return null;
         }
 
+        public int GetLargestEmptyLot()
+        {
+            int largestSize = 0;
+            int currentSize = 0;
+            for (int i = 0; i < Garage.Vehicles.Length; i++)
+            {
+                if (Garage.Vehicles[i] == null)
+                {
+                    currentSize++;
+                    if (currentSize > largestSize)
+                    {
+                        largestSize = currentSize;
+                    }
+                }
+                else
+                {
+                    currentSize = 0;
+                }
+            }
+            return largestSize;
+        }
+
         private static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)
         {
             if (typeFilter == null && colorFilter == null && wheelCountFilter == null)
