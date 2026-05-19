@@ -8,7 +8,7 @@ namespace CSharp_Garage_Task.VehicleClasses
     {
         public int Capacity { get; private set; }
         public static readonly int vehicleSize = 1;
-        public Bus(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, int capacity) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Bus(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, List<int> parkedNumber, int capacity) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             pluralName = "Busses";
             Capacity = capacity;

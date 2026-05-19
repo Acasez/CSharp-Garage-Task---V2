@@ -18,7 +18,7 @@ namespace CSharp_Garage_Task
         bool CheckForGarageSpace();
         int GetFirstEmptySpace();
         void AddVehicle();
-        int GetLargestEmptyLot();
+        List<int> GetLargestEmptyLot();
 
         #region Filters
         internal static VehicleColors GetVehicleColor()

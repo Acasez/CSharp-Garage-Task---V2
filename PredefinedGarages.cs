@@ -12,10 +12,10 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> LuxuryGarage(GarageHandler handler)
         {
             Garage<Vehicle> luxuryGarage = new(5, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0.ToList(), Car.CarBrand.Porshe);
             luxuryGarage.AddVehicle(fastCar, 0);
 
-            Vehicle yacht = new Boat("Yacht", "420", VehicleColors.Blue, VehicleTypes.Boat, 1, true);
+            Vehicle yacht = new Boat("Yacht", "420", VehicleColors.Blue, VehicleTypes.Boat, 1.ToList(), true);
             luxuryGarage.AddVehicle(yacht, 1);
 
             List<int> zoomSpaces = [2, 3, 4];
@@ -27,28 +27,28 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> HugeGarage(GarageHandler handler)
         {
             Garage<Vehicle> hugeGarage = new (25, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0.ToList(), Car.CarBrand.Porshe);
             hugeGarage.AddVehicle(fastCar, 0);
 
-            Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1, 120);
+            Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1.ToList(), 120);
             hugeGarage.AddVehicle(mcBike, 1);
 
-            Vehicle yesINeedASUV = new Car("yesINeedASUV", "221SUV", VehicleColors.White, VehicleTypes.Car, 2, Car.CarBrand.Ford);
+            Vehicle yesINeedASUV = new Car("yesINeedASUV", "221SUV", VehicleColors.White, VehicleTypes.Car, 2.ToList(), Car.CarBrand.Ford);
             hugeGarage.AddVehicle(yesINeedASUV, 2);
 
-            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3, Car.CarBrand.Renualt);
+            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3.ToList(), Car.CarBrand.Renualt);
             hugeGarage.AddVehicle(fancyElectric, 3);
 
-            Vehicle rustyButWorking = new Car("rustyButWorking", "822YER", VehicleColors.Green, VehicleTypes.Car, 4, Car.CarBrand.Toyota);
+            Vehicle rustyButWorking = new Car("rustyButWorking", "822YER", VehicleColors.Green, VehicleTypes.Car, 4.ToList(), Car.CarBrand.Toyota);
             hugeGarage.AddVehicle(rustyButWorking, 4);
 
-            Vehicle schoolBus = new Bus("schoolBus", "123BUS", VehicleColors.Yellow, VehicleTypes.Bus, 5, 30);
+            Vehicle schoolBus = new Bus("schoolBus", "123BUS", VehicleColors.Yellow, VehicleTypes.Bus, 5.ToList(), 30);
             hugeGarage.AddVehicle(schoolBus, 5);
 
-            Vehicle ordinaryBus = new Bus("ordinaryBus", "321BUS", VehicleColors.Red, VehicleTypes.Bus, 6, 50);
+            Vehicle ordinaryBus = new Bus("ordinaryBus", "321BUS", VehicleColors.Red, VehicleTypes.Bus, 6.ToList(), 50);
             hugeGarage.AddVehicle(ordinaryBus, 6);
 
-            Vehicle coolerBike = new Motorcycle("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 7, 150);
+            Vehicle coolerBike = new Motorcycle("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 7.ToList(), 150);
             hugeGarage.AddVehicle(coolerBike, 7);
             return hugeGarage;
         }
@@ -56,25 +56,33 @@ namespace CSharp_Garage_Task
         internal static Garage<Vehicle> SpacedGarage(GarageHandler handler)
         {
             Garage<Vehicle> spacedGarage = new (12, handler);
-            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
+            Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0.ToList(), Car.CarBrand.Porshe);
             spacedGarage.AddVehicle(fastCar, 0);
 
-            Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1, 120);
+            Vehicle mcBike = new Motorcycle("mcBike", "994MCC", VehicleColors.Black, VehicleTypes.Motorcycle, 1.ToList(), 120);
             spacedGarage.AddVehicle(mcBike, 1);
 
-            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3, Car.CarBrand.Renualt);
+            Vehicle fancyElectric = new Car("fancyElectric", "410POW", VehicleColors.Silver, VehicleTypes.Car, 3.ToList(), Car.CarBrand.Renualt);
             spacedGarage.AddVehicle(fancyElectric, 3);
 
-            Vehicle coolerBike = new Motorcycle("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 6, 150);
+            Vehicle coolerBike = new Motorcycle("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 6.ToList(), 150);
             spacedGarage.AddVehicle(coolerBike, 6);
 
             List<int> daPlaneSpaces = [9, 10, 11];
             Vehicle daPlane = new Airplane("daPlane", "000FLY", VehicleColors.Blue, VehicleTypes.Airplane, daPlaneSpaces, 500);
             spacedGarage.AddVehicle(daPlane, daPlaneSpaces);
 
-            Vehicle ohSeven = new Car("ohSeven", "007BON", VehicleColors.Silver, VehicleTypes.Car, 7, Car.CarBrand.Saab);
+            Vehicle ohSeven = new Car("ohSeven", "007BON", VehicleColors.Silver, VehicleTypes.Car, 7.ToList(), Car.CarBrand.Saab);
             spacedGarage.AddVehicle(ohSeven, 7);
             return spacedGarage;
         }
     }
+    public static class IntExtensions
+    {
+        public static List<int> ToList(this int value)
+        {
+            return new List<int> { value };
+        }
+    }
 }
+

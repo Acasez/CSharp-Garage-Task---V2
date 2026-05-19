@@ -8,12 +8,12 @@ namespace CSharp_Garage_Task.VehicleClasses
     {
         public bool Sail { get; private set; }
         public static readonly int vehicleSize = 2;
-        public Boat(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, bool sail) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Boat(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, List<int> parkedNumber, bool sail) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             Wheels = 0;
             pluralName = "Boats";
             Sail = sail;
-            Size = 2;
+            Size = vehicleSize;
         }
 
         public override string ToString()

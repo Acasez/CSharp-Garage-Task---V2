@@ -20,7 +20,7 @@ namespace CSharp_Garage_Task.VehicleClasses
         }
         public CarBrand Brand { get; private set; }
         public static readonly int vehicleSize = 1;
-        public Car(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, CarBrand brand) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Car(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, List<int> parkedNumber, CarBrand brand) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             pluralName = "Cars";
             Brand = brand;

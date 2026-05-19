@@ -51,16 +51,17 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Garage Full");
                 return;
             }
-            int garageSpace = GetFirstEmptySpace();
-            int largestEmptyLot = GetLargestEmptyLot();
+            List<int> largestEmptyLot = GetLargestEmptyLot();
 
-            Helper.WriteMessage("Largest empty lot is " + largestEmptyLot);
+            Helper.WriteMessage("Largest empty lot is " + largestEmptyLot.Count + " long.");
             Helper.WriteMessage(vehicleCreation);
-            VehicleTypes vehicleType = IHandler.GetVehicleType(largestEmptyLot);
+            VehicleTypes vehicleType = IHandler.GetVehicleType(largestEmptyLot.Count);
             if (!Enum.IsDefined(vehicleType))
             {
                 return;
             }
+            List<int> garageSpace = largestEmptyLot.Slice(0, IHandler.GetSizeOfVehicle(vehicleType));
+
             Helper.WriteMessage("Creating " + vehicleType);
 
             Helper.WriteMessage("Write vehicle name: ");
@@ -116,8 +117,7 @@ namespace CSharp_Garage_Task
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");
                     int flightHours = Helper.GetIntFromInput(0);
-                    List<int> planeSpaces = [garageSpace, garageSpace + 1, garageSpace + 2];
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, planeSpaces, flightHours);
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, flightHours);
                     break;
                 case VehicleTypes.Bus:
                     Helper.WriteMessage("How many people does the bus fit?");
@@ -306,26 +306,27 @@ namespace CSharp_Garage_Task
             return -1; 
         }
 
-        public int GetLargestEmptyLot()
+        public List<int> GetLargestEmptyLot()
         {
-            int largestSize = 0;
-            int currentSize = 0;
+            List<int> currentLot = [];
+            List<int> largestLot = [];
             for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
                 if (Garage.Vehicles[i] == null)
                 {
-                    currentSize++;
-                    if (currentSize > largestSize)
+                    currentLot.Add(i);
+                    if (currentLot.Count > largestLot.Count)
                     {
-                        largestSize = currentSize;
+                        largestLot.Clear();
+                        largestLot.AddRange(currentLot);
                     }
                 }
                 else
                 {
-                    currentSize = 0;
+                    currentLot.Clear();
                 }
             }
-            return largestSize;
+            return largestLot;
         }
 
         private static void DisplayCurrentFilters(VehicleTypes? typeFilter, VehicleColors? colorFilter, int? wheelCountFilter)

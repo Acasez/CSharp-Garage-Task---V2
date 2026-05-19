@@ -69,8 +69,8 @@ namespace CSharp_Garage_Task
                     handler.ListAllVehiclesFilterable();
                     break;
                 case "6":
-                    int lotSize = handler.GetLargestEmptyLot();
-                    Helper.WriteMessage("Largest empty lot is " + lotSize);
+                    List<int> lot = handler.GetLargestEmptyLot();
+                    Helper.WriteMessage("Largest empty lot is " + lot.Count + " sizes long");
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
