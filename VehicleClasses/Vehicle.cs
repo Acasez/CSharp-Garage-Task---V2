@@ -61,7 +61,7 @@ namespace CSharp_Garage_Task.VehicleClasses
                 {
                     toString += " and ";
                 }
-                toString += i.ToString();
+                toString += parkSpacesOccupied[i].ToString();
             }
             return toString;
         }
