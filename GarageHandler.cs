@@ -1,8 +1,9 @@
 ﻿using CSharp_Garage_Task.VehicleClasses;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Text;
 using static CSharp_Garage_Task.Garage<CSharp_Garage_Task.VehicleClasses.Vehicle>;
 using static CSharp_Garage_Task.VehicleClasses.Vehicle;
 
@@ -183,7 +184,11 @@ namespace CSharp_Garage_Task
                 if (yesNoInt == 1)
                 {
                     Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
-                    Garage.Vehicles[vehicle.parkedNumber] = null;
+                    List<int> newFreeSpaces = vehicle.parkSpacesOccupied;
+                    foreach (int newFreeSpace in newFreeSpaces)
+                    {
+                        Garage.Vehicles[newFreeSpace] = null;
+                    }
                     Garage.ParkedVehicles--;
                 }
                 else if (yesNoInt == 2)

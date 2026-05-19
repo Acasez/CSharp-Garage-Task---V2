@@ -31,21 +31,39 @@ namespace CSharp_Garage_Task.VehicleClasses
         public VehicleColors Color { get; private set; }
         public VehicleTypes VehicleType { get; private set; }
 
-        public readonly int parkedNumber;
+        public readonly List<int> parkSpacesOccupied = [];
 
         public static string pluralName = "Vehicles";
-        public Vehicle (string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber)
+        public Vehicle (string name, string registerID, VehicleColors color, VehicleTypes vehicleType, List<int> parkedNumbers)
         {
             Name = name;
             RegisterID = registerID;
             Color = color;
             VehicleType = vehicleType;
-            this.parkedNumber = parkedNumber;
+            parkSpacesOccupied = parkedNumbers;
+        }
+
+        public Vehicle(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber)
+        {
+            Name = name;
+            RegisterID = registerID;
+            Color = color;
+            VehicleType = vehicleType;
+            parkSpacesOccupied.Add(parkedNumber);
         }
 
         public override string ToString()
         {
-            return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString();
+            string toString = VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying spaces ";
+            for (int i = 0; i < parkSpacesOccupied.Count; i++)
+            {
+                if (i != 0)
+                {
+                    toString += " and ";
+                }
+                toString += i.ToString();
+            }
+            return toString;
         }
     }
 }
