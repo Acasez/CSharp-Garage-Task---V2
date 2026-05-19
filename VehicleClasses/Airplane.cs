@@ -12,6 +12,7 @@ namespace CSharp_Garage_Task.VehicleClasses
             Wheels = 2;
             pluralName = "Airplanes";
             FlightHours = flightHours;
+            Size = 3;
         }
 
         public override string ToString()

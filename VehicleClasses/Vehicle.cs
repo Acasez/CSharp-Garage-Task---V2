@@ -26,6 +26,7 @@ namespace CSharp_Garage_Task.VehicleClasses
         }
         public string Name { get; private set; }
         public int Wheels { get; protected set; } = 4;
+        public int Size { get; protected set; } = 4;
         public string RegisterID { get; private set; }
         public VehicleColors Color { get; private set; }
         public VehicleTypes VehicleType { get; private set; }

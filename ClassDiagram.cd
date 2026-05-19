@@ -60,7 +60,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEgAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
       <FileName>VehicleClasses\Vehicle.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -100,7 +100,7 @@
   <Class Name="CSharp_Garage_Task.GarageHandler">
     <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAEIAEQAAAAAAAAACwAAAAAAAAAAAACAgAAhCAACAA=</HashCode>
+      <HashCode>AIAEIAEQAAAAAAAAACwAABAAAAAAAAACAgAAhCAACAA=</HashCode>
       <FileName>GarageHandler.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -126,7 +126,7 @@
   <Interface Name="CSharp_Garage_Task.IUI">
     <Position X="11.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAEAAAAAQAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAEAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>IUI.cs</FileName>
     </TypeIdentifier>
   </Interface>

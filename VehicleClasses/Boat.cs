@@ -12,6 +12,7 @@ namespace CSharp_Garage_Task.VehicleClasses
             Wheels = 0;
             pluralName = "Boats";
             Sail = sail;
+            Size = 3;
         }
 
         public override string ToString()
