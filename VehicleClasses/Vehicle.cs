@@ -54,16 +54,7 @@ namespace CSharp_Garage_Task.VehicleClasses
 
         public override string ToString()
         {
-            string toString = VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying spaces ";
-            for (int i = 0; i < parkSpacesOccupied.Count; i++)
-            {
-                if (i != 0)
-                {
-                    toString += " and ";
-                }
-                toString += parkSpacesOccupied[i].ToString();
-            }
-            return toString;
+            return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying spaces " + parkSpacesOccupied.ToCustomString();
         }
     }
 }
