@@ -19,10 +19,12 @@ namespace CSharp_Garage_Task.VehicleClasses
             Renualt
         }
         public CarBrand Brand { get; private set; }
+        public static readonly int vehicleSize = 1;
         public Car(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, CarBrand brand) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             pluralName = "Cars";
             Brand = brand;
+            Size = vehicleSize;
         }
 
         public override string ToString()

@@ -51,15 +51,12 @@ namespace CSharp_Garage_Task
                 Helper.WriteWarningMessage("Garage Full");
                 return;
             }
-            int? garageSpace = GetFirstEmptySpace();
-            if (garageSpace == null)
-            {
-                Helper.WriteWarningMessage("No fitting space");
-                return;
-            }
+            int garageSpace = GetFirstEmptySpace();
+            int largestEmptyLot = GetLargestEmptyLot();
 
+            Helper.WriteMessage("Largest empty lot is " + largestEmptyLot);
             Helper.WriteMessage(vehicleCreation);
-            VehicleTypes vehicleType = IHandler.GetVehicleType();
+            VehicleTypes vehicleType = IHandler.GetVehicleType(largestEmptyLot);
             if (!Enum.IsDefined(vehicleType))
             {
                 return;
@@ -93,23 +90,23 @@ namespace CSharp_Garage_Task
                 case VehicleTypes.Car:
                     Helper.WriteMessage("What's the car brand?");
                     Car.CarBrand carBrand = Car.GetCarBrand();
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, carBrand);
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, carBrand);
                     break;
                 case VehicleTypes.Motorcycle:
                     Helper.WriteMessage("What's the top speed");
                     int topSpeed = Helper.GetIntFromInput(0);
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, topSpeed);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, topSpeed);
                     break;
                 case VehicleTypes.Boat:
                     Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
                     int sailsInt = Helper.GetIntFromInput(1, 2);
                     if (sailsInt == 1)
                     {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, true);
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, true);
                     }
                     else if (sailsInt == 2)
                     {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, false);
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, false);
                     }
                     else
                     {
@@ -119,13 +116,13 @@ namespace CSharp_Garage_Task
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");
                     int flightHours = Helper.GetIntFromInput(0);
-                    List<int> planeSpaces = [(int)garageSpace, (int)garageSpace + 1, (int)garageSpace + 2];
+                    List<int> planeSpaces = [garageSpace, garageSpace + 1, garageSpace + 2];
                     newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, planeSpaces, flightHours);
                     break;
                 case VehicleTypes.Bus:
                     Helper.WriteMessage("How many people does the bus fit?");
                     int capacity = Helper.GetIntFromInput(0);
-                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, capacity);
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, capacity);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
@@ -133,7 +130,7 @@ namespace CSharp_Garage_Task
             }
             if (newVehicle != null)
             {
-                Garage.AddVehicle(newVehicle, (int)garageSpace, true);
+                Garage.AddVehicle(newVehicle, garageSpace, true);
             }
         }
 
@@ -296,7 +293,7 @@ namespace CSharp_Garage_Task
             }
         }
 
-        public int? GetFirstEmptySpace()
+        public int GetFirstEmptySpace()
         {
             for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
@@ -305,7 +302,8 @@ namespace CSharp_Garage_Task
                     return i;
                 }
             }
-            return null;
+            Helper.WriteErrorMessage("ERROR. No fitting spaces.");
+            return -1; 
         }
 
         public int GetLargestEmptyLot()

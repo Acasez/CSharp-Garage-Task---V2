@@ -16,7 +16,7 @@ namespace CSharp_Garage_Task
         void ListVehiclesTypes();
         void ListAllVehiclesFilterable();
         bool CheckForGarageSpace();
-        int? GetFirstEmptySpace();
+        int GetFirstEmptySpace();
         void AddVehicle();
         int GetLargestEmptyLot();
 
@@ -43,13 +43,31 @@ namespace CSharp_Garage_Task
             }
         }
 
-        internal static VehicleTypes GetVehicleType()
+        internal static VehicleTypes GetVehicleType(int sizeLimit = 5)
         {
+            List<VehicleTypes> nonFittingVehicles = [];
+            List<VehicleTypes> fittingVehicles = [];
+            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+            {
+                if (GetSizeOfVehicle(type) > sizeLimit)
+                {
+                    nonFittingVehicles.Add(type);
+                }
+                else
+                {
+                    fittingVehicles.Add(type);
+                }
+            }
+
             while (true)
             {
-                foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
+                foreach(VehicleTypes type in fittingVehicles)
                 {
                     Helper.WriteMessage((int)type + ": " + type.ToString());
+                }
+                foreach (VehicleTypes type in nonFittingVehicles)
+                {
+                    Helper.WriteWarningMessage("Can't fit " + (int)type + ": " + type.ToString());
                 }
                 if (!int.TryParse(Helper.GetInput(), out int vehicleTypeInt))
                 {
@@ -61,8 +79,32 @@ namespace CSharp_Garage_Task
                     Helper.WriteErrorMessage("Invalid input, select a valid vehicle type. Try again.");
                     continue; 
                 }
+                if (nonFittingVehicles.Contains((VehicleTypes)vehicleTypeInt))
+                {
+                    Helper.WriteErrorMessage("Garage cannot fit vehicle");
+                    continue;
+                }
 
                 return (VehicleTypes)vehicleTypeInt;
+            }
+        }
+
+        internal static int GetSizeOfVehicle(VehicleTypes vehicleType)
+        {
+            switch (vehicleType)
+            {
+                case VehicleTypes.Airplane:
+                    return Airplane.vehicleSize;
+                case VehicleTypes.Boat:
+                    return Boat.vehicleSize;
+                case VehicleTypes.Bus:
+                    return Bus.vehicleSize;
+                case VehicleTypes.Car:
+                    return Car.vehicleSize;
+                case VehicleTypes.Motorcycle:
+                    return Motorcycle.vehicleSize;
+                default: 
+                    return 1;
             }
         }
 

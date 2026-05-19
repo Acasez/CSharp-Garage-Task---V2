@@ -15,35 +15,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.PredefinedGarages">
-    <Position X="8.25" Y="2.75" Width="1.5" />
+    <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAIAAAAAAAAAACAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PredefinedGarages.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Airplane">
-    <Position X="4.75" Y="2.75" Width="1.5" />
+    <Position X="4.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>VehicleClasses\Airplane.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Boat">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleClasses\Boat.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Bus">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAABCAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleClasses\Bus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Vehicle">
-    <Position X="6.5" Y="2.75" Width="1.5" />
+    <Position X="6.5" Y="3" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
@@ -60,7 +60,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAEgAAAABQAAAIAAAAQAAAAgAACAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAgAAEAAAAABQAAAIAAAAQCAAAgAACAAA=</HashCode>
       <FileName>VehicleClasses\Vehicle.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -78,14 +78,14 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAABAAAEAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <HashCode>AAAAAAAAAAABAAAEAAAAAABAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>VehicleClasses\Car.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.VehicleClasses.Motorcycle">
     <Position X="4.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAIABAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleClasses\Motorcycle.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -100,7 +100,7 @@
   <Class Name="CSharp_Garage_Task.GarageHandler">
     <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAEIAEQAAAAAAAAACwAABAAAAAAAAACAgAAhCAACAA=</HashCode>
+      <HashCode>AIAEIAEQAAAAAAAAACwAABAAAAAAAAACCgAAhCAACAA=</HashCode>
       <FileName>GarageHandler.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -131,7 +131,7 @@
     </TypeIdentifier>
   </Interface>
   <Interface Name="CSharp_Garage_Task.VehicleClasses.IVehicle">
-    <Position X="8.25" Y="4.5" Width="1.5" />
+    <Position X="8.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>VehicleClasses\IVehicle.cs</FileName>
@@ -140,7 +140,7 @@
   <Interface Name="CSharp_Garage_Task.IHandler">
     <Position X="15.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AIAAIAEQAAQAAAAAAAgAAAAIAAAAAAAIAgAABCAACAA=</HashCode>
+      <HashCode>AIAAIAEQAAQAAAAAAEgAAAAIAAAAAAAICgAABCAACAA=</HashCode>
       <FileName>IHandler.cs</FileName>
     </TypeIdentifier>
   </Interface>
