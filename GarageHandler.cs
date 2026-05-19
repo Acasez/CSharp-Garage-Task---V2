@@ -268,10 +268,7 @@ namespace CSharp_Garage_Task
                         colorFilter = IHandler.GetVehicleColor();
                         break;
                     case FilterOptions.Wheels:
-                        if (!int.TryParse(Helper.GetInput(), out int wheelCount))
-                        {
-                            Helper.WriteErrorMessage("Error, not a interger");
-                        }
+                        int wheelCount = Helper.GetIntFromInput(0);
                         wheelCountFilter = wheelCount;
                         break;
                     default:
