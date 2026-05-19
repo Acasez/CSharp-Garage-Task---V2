@@ -60,7 +60,7 @@ namespace CSharp_Garage_Task
             {
                 return;
             }
-            List<int> garageSpace = largestEmptyLot.Slice(0, IHandler.GetSizeOfVehicle(vehicleType));
+            List<int> garageSpace = largestEmptyLot.GetRange(0, IHandler.GetSizeOfVehicle(vehicleType));
 
             Helper.WriteMessage("Creating " + vehicleType);
 
@@ -136,17 +136,20 @@ namespace CSharp_Garage_Task
 
         public void DisplayGarageSpaces()
         {
+            Vehicle? lastVehicle = null;
             Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.Vehicles.Length + " spaces.");
             for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
+                if (Garage.Vehicles[i] == lastVehicle) { continue; }
                 if (Garage.Vehicles[i] != null)
                 {
-                    Helper.WriteMessage("Space " + i + " - " + Garage.Vehicles[i].ToString());
+                    Helper.WriteMessage("Spaces " + Garage.Vehicles[i].parkSpacesOccupied.ToCustomString() + " - " + Garage.Vehicles[i].ToString(false));
                 }
                 else
                 {
                     Helper.WriteMessage("Space " + i + " - No vehicles parked");
                 }
+                lastVehicle = Garage.Vehicles[i];
             }
         }
 
@@ -176,12 +179,12 @@ namespace CSharp_Garage_Task
             Vehicle? vehicle = GetVehicleByID(vehicleID);
             if (vehicle != null)
             {
-                Helper.WriteMessage("Found vehicle " + vehicle.ToString());
+                Helper.WriteMessage("Found vehicle " + vehicle.ToString(true));
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
                 int yesNoInt = Helper.GetIntFromInput(1, 2);
                 if (yesNoInt == 1)
                 {
-                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(), ConsoleColor.Yellow);
+                    Helper.WriteMessage("Removed vehicle " + vehicle.ToString(false), ConsoleColor.Yellow);
                     List<int> newFreeSpaces = vehicle.parkSpacesOccupied;
                     foreach (int newFreeSpace in newFreeSpaces)
                     {
@@ -230,7 +233,7 @@ namespace CSharp_Garage_Task
                 Helper.WriteMessage("There are " + type.Count() + " " + type.Key + "s");
                 foreach (var vehicle in type)
                 {
-                    Helper.WriteMessage(" - " + vehicle.ToString());
+                    Helper.WriteMessage(" - " + vehicle.ToString(true));
                 }
             }
         }
@@ -249,7 +252,7 @@ namespace CSharp_Garage_Task
                     .Where(v => colorFilter == null || v.Color == colorFilter)
                     .Where(v => wheelCountFilter == null || v.Wheels == wheelCountFilter).ToList();
 
-                filteredVehicles.ForEach(v => Helper.WriteMessage(v.ToString()));
+                filteredVehicles.ForEach(v => Helper.WriteMessage(v.ToString(true)));
                 int fittingVehicles = filteredVehicles.Count;
                 if (fittingVehicles == 0)
                 {

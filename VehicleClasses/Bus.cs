@@ -15,9 +15,9 @@ namespace CSharp_Garage_Task.VehicleClasses
             Size = vehicleSize;
         }
 
-        public override string ToString()
+        public override string ToString(bool showSpaces)
         {
-            return base.ToString() + " with a capacity of " + Capacity;
+            return base.ToString(showSpaces) + " with a capacity of " + Capacity;
         }
     }
 }

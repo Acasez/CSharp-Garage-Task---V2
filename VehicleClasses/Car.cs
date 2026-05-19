@@ -27,9 +27,9 @@ namespace CSharp_Garage_Task.VehicleClasses
             Size = vehicleSize;
         }
 
-        public override string ToString()
+        public override string ToString(bool showSpaces)
         {
-            return base.ToString() + " of car brand " + Brand;
+            return base.ToString(showSpaces) + " of car brand " + Brand;
         }
 
         internal static CarBrand GetCarBrand()

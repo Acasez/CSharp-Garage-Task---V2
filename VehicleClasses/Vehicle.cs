@@ -52,9 +52,13 @@ namespace CSharp_Garage_Task.VehicleClasses
             parkSpacesOccupied.Add(parkedNumber);
         }
 
-        public override string ToString()
+        public virtual string ToString(bool showSpaces)
         {
-            return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying spaces " + parkSpacesOccupied.ToCustomString();
+            if (showSpaces)
+            {
+                return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying spaces " + parkSpacesOccupied.ToCustomString();
+            }
+            return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString();
         }
     }
 }

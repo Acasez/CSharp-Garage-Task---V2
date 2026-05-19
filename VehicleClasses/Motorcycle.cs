@@ -16,9 +16,9 @@ namespace CSharp_Garage_Task.VehicleClasses
             Size = vehicleSize;
         }
 
-        public override string ToString()
+        public override string ToString(bool showSpaces)
         {
-            return base.ToString() + " with a top speed of " + TopSpeed;
+            return base.ToString(showSpaces) + " with a top speed of " + TopSpeed;
         }
     }
 }

@@ -6,6 +6,6 @@ namespace CSharp_Garage_Task.VehicleClasses
 {
     internal interface IVehicle
     {
-        string ToString();
+        string ToString(bool showSpaces);
     }
 }

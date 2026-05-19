@@ -16,9 +16,9 @@ namespace CSharp_Garage_Task.VehicleClasses
             Size = vehicleSize;
         }
 
-        public override string ToString()
+        public override string ToString(bool showSpaces)
         {
-            return base.ToString() + " with " + FlightHours + " flight hours";
+            return base.ToString(showSpaces) + " with " + FlightHours + " flight hours";
         }
     }
 }
