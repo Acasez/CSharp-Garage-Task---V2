@@ -15,11 +15,12 @@ namespace CSharp_Garage_Task
             Vehicle fastCar = new Car("Wroom", "24", VehicleColors.Red, VehicleTypes.Car, 0, Car.CarBrand.Porshe);
             luxuryGarage.AddVehicle(fastCar, 0);
 
-            Vehicle coolPlane = new Airplane("Zoom", "87", VehicleColors.Silver, VehicleTypes.Airplane, 1, 32);
-            luxuryGarage.AddVehicle(coolPlane, 1);
+            Vehicle yacht = new Boat("Yacht", "420", VehicleColors.Blue, VehicleTypes.Boat, 1, true);
+            luxuryGarage.AddVehicle(yacht, 1);
 
-            Vehicle yacht = new Boat("Yacht", "420", VehicleColors.Blue, VehicleTypes.Boat, 2, true);
-            luxuryGarage.AddVehicle(yacht, 2);
+            List<int> zoomSpaces = [2, 3, 4];
+            Vehicle coolPlane = new Airplane("Zoom", "87", VehicleColors.Silver, VehicleTypes.Airplane, zoomSpaces, 32);
+            luxuryGarage.AddVehicle(coolPlane, zoomSpaces);
             return luxuryGarage;
         }
 
@@ -67,8 +68,9 @@ namespace CSharp_Garage_Task
             Vehicle coolerBike = new Motorcycle("coolerBike", "995WIN", VehicleColors.Silver, VehicleTypes.Motorcycle, 6, 150);
             spacedGarage.AddVehicle(coolerBike, 6);
 
-            Vehicle daPlane = new Airplane("daPlane", "000FLY", VehicleColors.Blue, VehicleTypes.Airplane, 10, 500);
-            spacedGarage.AddVehicle(daPlane, 10);
+            List<int> daPlaneSpaces = [9, 10, 11];
+            Vehicle daPlane = new Airplane("daPlane", "000FLY", VehicleColors.Blue, VehicleTypes.Airplane, daPlaneSpaces, 500);
+            spacedGarage.AddVehicle(daPlane, daPlaneSpaces);
 
             Vehicle ohSeven = new Car("ohSeven", "007BON", VehicleColors.Silver, VehicleTypes.Car, 7, Car.CarBrand.Saab);
             spacedGarage.AddVehicle(ohSeven, 7);

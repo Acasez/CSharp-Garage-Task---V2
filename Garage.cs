@@ -56,6 +56,19 @@ namespace CSharp_Garage_Task
             ParkedVehicles ++;
         }
 
+        internal void AddVehicle(Vehicle vehicle, List<int> spaces, bool log = false)
+        {
+            if (log)
+            {
+                Helper.WriteMessage("Added vehicle " + vehicle.ToString() + " to garage space " + spaces.ToString());
+            }
+            foreach (int space in spaces)
+            {
+                Vehicles[space] = vehicle;
+            }
+            ParkedVehicles++;
+        }
+
         internal void ListAllVehiclesOfType()
         {
             VehicleTypes vehicleType = IHandler.GetVehicleType();

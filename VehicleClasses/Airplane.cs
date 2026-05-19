@@ -7,7 +7,7 @@ namespace CSharp_Garage_Task.VehicleClasses
     internal class Airplane : Vehicle
     {
         public int FlightHours { get; private set; }
-        public Airplane(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber, int flightHours) : base(name, registerID, color, vehicleType, parkedNumber)
+        public Airplane(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, List<int> parkedNumber, int flightHours) : base(name, registerID, color, vehicleType, parkedNumber)
         {
             Wheels = 2;
             pluralName = "Airplanes";

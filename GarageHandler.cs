@@ -93,23 +93,23 @@ namespace CSharp_Garage_Task
                 case VehicleTypes.Car:
                     Helper.WriteMessage("What's the car brand?");
                     Car.CarBrand carBrand = Car.GetCarBrand();
-                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, carBrand);
+                    newVehicle = new Car(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, carBrand);
                     break;
                 case VehicleTypes.Motorcycle:
                     Helper.WriteMessage("What's the top speed");
                     int topSpeed = Helper.GetIntFromInput(0);
-                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, topSpeed);
+                    newVehicle = new Motorcycle(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, topSpeed);
                     break;
                 case VehicleTypes.Boat:
                     Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
                     int sailsInt = Helper.GetIntFromInput(1, 2);
                     if (sailsInt == 1)
                     {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, true);
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, true);
                     }
                     else if (sailsInt == 2)
                     {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, false);
+                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, false);
                     }
                     else
                     {
@@ -119,12 +119,13 @@ namespace CSharp_Garage_Task
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");
                     int flightHours = Helper.GetIntFromInput(0);
-                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, flightHours);
+                    List<int> planeSpaces = [(int)garageSpace, (int)garageSpace + 1, (int)garageSpace + 2];
+                    newVehicle = new Airplane(vehicleName, vehicleID, vehicleColor, vehicleType, planeSpaces, flightHours);
                     break;
                 case VehicleTypes.Bus:
                     Helper.WriteMessage("How many people does the bus fit?");
                     int capacity = Helper.GetIntFromInput(0);
-                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, Garage.ParkedVehicles, capacity);
+                    newVehicle = new Bus(vehicleName, vehicleID, vehicleColor, vehicleType, (int)garageSpace, capacity);
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
