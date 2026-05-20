@@ -226,7 +226,7 @@ namespace CSharp_Garage_Task
 
         public void ListVehiclesTypes()
         {
-            var vehiclesByType = Garage.Where(v => v != null).GroupBy(v => v.VehicleType).OrderBy(g => g.Key);
+            var vehiclesByType = Garage.Where(v => v != null).DistinctBy(v => v.RegisterID).GroupBy(v => v.VehicleType).OrderBy(g => g.Key);
 
             foreach (var type in vehiclesByType)
             {
