@@ -136,9 +136,10 @@ namespace CSharp_Garage_Task
 
         public void DisplayGarageSpaces()
         {
-            Vehicle? lastVehicle = null; //TODO, something to display null spaces at the same time 
+            Vehicle? lastVehicle = null;
             List<int> currentNullSpaces = [];
             Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.Vehicles.Length + " spaces.");
+            Helper.WriteHorizontalLine();
             for (int i = 0; i < Garage.Vehicles.Length; i++)
             {
                 if (Garage.Vehicles[i] == lastVehicle && Garage.Vehicles[i] != null) { continue; }

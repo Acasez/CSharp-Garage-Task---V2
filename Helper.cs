@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CSharp_Garage_Task
 {
@@ -68,6 +69,11 @@ namespace CSharp_Garage_Task
                     WriteErrorMessage("Invalid input, try again");
                 }
             }
+        }
+
+        internal static void WriteHorizontalLine()
+        {
+            WriteMessage("-----------------------------------", ConsoleColor.White);
         }
     }
 }
