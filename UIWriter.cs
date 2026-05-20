@@ -70,7 +70,15 @@ namespace CSharp_Garage_Task
                     break;
                 case "6":
                     List<int> lot = handler.GetLargestEmptyLot();
-                    Helper.WriteMessage("Largest empty lot is " + lot.Count + " sizes long");
+                    if (lot.Count > 0)
+                    {
+                        Helper.WriteMessage("Largest empty lot is " + (lot.Count == 1 ? "space " : "spaces ") + lot.ToCustomString());
+                    }
+                    else
+                    {
+                        Helper.WriteWarningMessage("No avaible empty lot");
+                    }
+                    
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
