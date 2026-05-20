@@ -3,7 +3,7 @@
   <Class Name="CSharp_Garage_Task.Helper">
     <Position X="11.75" Y="1.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AQAAAgAAAAAAAAACAQAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <HashCode>AQAAAgAAAAAAAAACAQAAAAAAAAAAAAAAAIABAAAAAAA=</HashCode>
       <FileName>Helper.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -90,7 +90,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CSharp_Garage_Task.UIWriter">
-    <Position X="11.75" Y="5.5" Width="1.5" />
+    <Position X="11.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAEAAAAAQAAAAAAAAAAAI=</HashCode>
       <FileName>UIWriter.cs</FileName>
@@ -124,7 +124,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="CSharp_Garage_Task.IUI">
-    <Position X="11.75" Y="3.75" Width="1.5" />
+    <Position X="11.75" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAACAEAAAAAQAAAAAAAAAAAA=</HashCode>
       <FileName>IUI.cs</FileName>
