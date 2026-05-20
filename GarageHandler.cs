@@ -136,7 +136,7 @@ namespace CSharp_Garage_Task
 
         public void DisplayGarageSpaces()
         {
-            Vehicle? lastVehicle = null;
+            Vehicle? lastVehicle = null; //TODO, would like to format this as a grid
             List<int> currentNullSpaces = [];
             Helper.WriteMessage("There are " + Garage.ParkedVehicles + " vehicles and " + Garage.Vehicles.Length + " spaces.");
             Helper.WriteHorizontalLine();
@@ -197,8 +197,7 @@ namespace CSharp_Garage_Task
                 if (yesNoInt == 1)
                 {
                     Helper.WriteMessage("Removed vehicle " + vehicle.ToString(false), ConsoleColor.Yellow);
-                    List<int> newFreeSpaces = vehicle.parkSpacesOccupied;
-                    foreach (int newFreeSpace in newFreeSpaces)
+                    foreach (int newFreeSpace in vehicle.parkSpacesOccupied)
                     {
                         Garage.Vehicles[newFreeSpace] = null;
                     }
