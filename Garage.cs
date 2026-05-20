@@ -60,7 +60,7 @@ namespace CSharp_Garage_Task
         {
             if (log)
             {
-                Helper.WriteMessage("Added vehicle " + vehicle.ToString() + " to garage space " + spaces.ToCustomString());
+                Helper.WriteMessage("Added vehicle " + vehicle.ToString(false) + " to garage space " + spaces.ToCustomString());
             }
             foreach (int space in spaces)
             {

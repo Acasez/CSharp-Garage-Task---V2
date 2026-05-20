@@ -61,7 +61,8 @@ namespace CSharp_Garage_Task
 
             while (true)
             {
-                foreach(VehicleTypes type in fittingVehicles)
+                Helper.WriteMessage("-1: Cancel");
+                foreach (VehicleTypes type in fittingVehicles)
                 {
                     Helper.WriteMessage((int)type + ": " + type.ToString());
                 }
@@ -74,7 +75,7 @@ namespace CSharp_Garage_Task
                     Helper.WriteErrorMessage("Error, not an integer. Try again.");
                     continue;
                 }
-                if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt))
+                if (!Enum.IsDefined(typeof(VehicleTypes), vehicleTypeInt) && !(vehicleTypeInt == -1))
                 {
                     Helper.WriteErrorMessage("Invalid input, select a valid vehicle type. Try again.");
                     continue; 
