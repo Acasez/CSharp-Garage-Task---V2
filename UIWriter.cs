@@ -78,7 +78,6 @@ namespace CSharp_Garage_Task
                     {
                         Helper.WriteWarningMessage("No avaible empty lot");
                     }
-                    
                     break;
                 default:
                     Helper.WriteErrorMessage("Invalid input, select a valid one.");
