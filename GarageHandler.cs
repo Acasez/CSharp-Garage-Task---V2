@@ -20,20 +20,20 @@ namespace CSharp_Garage_Task
         {
             if (garageSpaces > 0)
             {
-                Garage = new Garage<Vehicle>(garageSpaces, this);
+                Garage = new Garage<Vehicle>(garageSpaces);
             }
             else
             {
                 switch (garageSpaces)
                 {
                     case -1:
-                        Garage = PredefinedGarages.LuxuryGarage(this);
+                        Garage = PredefinedGarages.LuxuryGarage();
                         break;
                     case -2:
-                        Garage = PredefinedGarages.HugeGarage(this);
+                        Garage = PredefinedGarages.HugeGarage();
                         break;
                     case -3:
-                        Garage = PredefinedGarages.SpacedGarage(this);
+                        Garage = PredefinedGarages.SpacedGarage();
                         break;
                     default:
                         Helper.WriteErrorMessage("Invalid input, select a valid one.");

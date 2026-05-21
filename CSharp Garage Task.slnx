@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="../Garage.Tests/CSharp Garage Tests.csproj" Id="17c8de2b-9084-4ccc-95e8-98f3486ae744" />
   <Project Path="CSharp Garage Task.csproj" />
 </Solution>

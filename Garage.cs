@@ -17,12 +17,10 @@ namespace CSharp_Garage_Task
             Wheels
         }
         public Vehicle[] Vehicles { get; private set; }
-        public IHandler GarageHandler { get; private set; }
         public int GarageCapacity { get; private set; }
         public int ParkedVehicles { get; set; }
-        public Garage(int size, IHandler handler)
+        public Garage(int size)
         {
-            GarageHandler = handler;
             if (size > 0)
             {
                 GarageCapacity = size;
