@@ -56,7 +56,7 @@ namespace CSharp_Garage_Task.VehicleClasses
         {
             if (showSpaces)
             {
-                return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying " + (parkSpacesOccupied.Count == 1 ? "space " : "spaces ") + parkSpacesOccupied.ToCustomString();
+                return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString() + " occupying " + Helper.WriteSpaces(parkSpacesOccupied.Count).ToLower() + parkSpacesOccupied.ToCustomString();
             }
             return VehicleType.ToString() + ": " + Name + " with ID " + RegisterID + " of color " + Color.ToString();
         }

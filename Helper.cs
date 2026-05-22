@@ -33,6 +33,13 @@ namespace CSharp_Garage_Task
             WriteMessage(text, ConsoleColor.White);
         }
 
+        public static void WriteMessageOnLine(string text)
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(text);
+            Console.ResetColor();
+        }
+
         public static string? GetInput()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -74,6 +81,11 @@ namespace CSharp_Garage_Task
         internal static void WriteHorizontalLine()
         {
             WriteMessage("-----------------------------------", ConsoleColor.White);
+        }
+
+        internal static string WriteSpaces(int amount)
+        {
+            return (amount == 1 ? "Space " : "Spaces ");
         }
     }
 }

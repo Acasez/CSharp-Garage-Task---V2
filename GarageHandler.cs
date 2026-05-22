@@ -147,10 +147,10 @@ namespace CSharp_Garage_Task
                 {
                     if (currentNullSpaces.Count > 0)
                     {
-                        Helper.WriteMessage((currentNullSpaces.Count == 1 ? "Space " : "Spaces ") + currentNullSpaces.ToCustomString() + " - No vehicles parked");
+                        Helper.WriteMessage(Helper.WriteSpaces(currentNullSpaces.Count) + currentNullSpaces.ToCustomString() + " - No vehicles parked");
                         currentNullSpaces.Clear();
                     }
-                    Helper.WriteMessage((Garage.Vehicles[i].parkSpacesOccupied.Count == 1 ? "Space " : "Spaces ") + Garage.Vehicles[i].parkSpacesOccupied.ToCustomString() + " - " + Garage.Vehicles[i].ToString(false));
+                    Helper.WriteMessage(Helper.WriteSpaces(Garage.Vehicles[i].parkSpacesOccupied.Count) + Garage.Vehicles[i].parkSpacesOccupied.ToCustomString() + " - " + Garage.Vehicles[i].ToString(false));
                 }
                 else
                 {
@@ -160,7 +160,7 @@ namespace CSharp_Garage_Task
             }
             if (currentNullSpaces.Count > 0)
             {
-                Helper.WriteMessage((currentNullSpaces.Count == 1 ? "Space " : "Spaces ") + currentNullSpaces.ToCustomString() + " - No vehicles parked");
+                Helper.WriteMessage(Helper.WriteSpaces(currentNullSpaces.Count) + currentNullSpaces.ToCustomString() + " - No vehicles parked");
                 currentNullSpaces.Clear();
             }
         }
