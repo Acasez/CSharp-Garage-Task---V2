@@ -168,8 +168,6 @@ namespace CSharp_Garage_Task
                 }
             }
             return null;
-            //Could do this but I think the foreach loop is easier to read
-            //return (from vehicle in Garage where vehicle != null && vehicle.RegisterID.Equals(ID, StringComparison.CurrentCultureIgnoreCase) select vehicle).FirstOrDefault();
         }
 
         public void FindVehicleById()
@@ -201,26 +199,6 @@ namespace CSharp_Garage_Task
             else
             {
                 Helper.WriteWarningMessage("Couldn't find vehicle witht that ID");
-            }
-        }
-        public void ListVehiclesTypesOld()
-        {
-            foreach (VehicleTypes type in Enum.GetValues<VehicleTypes>())
-            {
-                List<Vehicle> vehiclesOfType = [];
-
-                foreach (Vehicle vehicle in Garage)
-                {
-                    if (vehicle != null && vehicle.VehicleType == type)
-                    {
-                        vehiclesOfType.Add(vehicle);
-                    }
-                }
-                Helper.WriteMessage("There are " + vehiclesOfType.Count + " " + type.ToString() + "s");
-                foreach(Vehicle vehicle in vehiclesOfType)
-                {
-                    Helper.WriteMessage(" - " + vehicle.ToString());
-                }
             }
         }
 
