@@ -182,8 +182,8 @@ namespace CSharp_Garage_Task
             {
                 Helper.WriteMessage("Found vehicle " + vehicle.ToString(true));
                 Helper.WriteMessage("Do you wish to remove the vehicle? \n1: Yes \n2: No ");
-                int yesNoInt = Helper.GetIntFromInput(1, 2);
-                if (yesNoInt == 1)
+                bool remove = Helper.GetBoolFromInput();
+                if (remove)
                 {
                     Helper.WriteMessage("Removed vehicle " + vehicle.ToString(false), ConsoleColor.Yellow);
                     foreach (int newFreeSpace in vehicle.parkSpacesOccupied)
@@ -192,7 +192,7 @@ namespace CSharp_Garage_Task
                     }
                     Garage.ParkedVehicles--;
                 }
-                else if (yesNoInt == 2)
+                else if (remove)
                 {
                     Helper.WriteMessage("Not removing vehicle");
                 }
