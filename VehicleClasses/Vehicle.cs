@@ -43,15 +43,6 @@ namespace CSharp_Garage_Task.VehicleClasses
             parkSpacesOccupied = parkedNumbers;
         }
 
-        public Vehicle(string name, string registerID, VehicleColors color, VehicleTypes vehicleType, int parkedNumber)
-        {
-            Name = name;
-            RegisterID = registerID;
-            Color = color;
-            VehicleType = vehicleType;
-            parkSpacesOccupied.Add(parkedNumber);
-        }
-
         public virtual string ToString(bool showSpaces)
         {
             if (showSpaces)
