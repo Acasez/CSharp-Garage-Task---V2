@@ -16,7 +16,6 @@ namespace CSharp_Garage_Task
         void ListVehiclesTypes();
         void ListAllVehiclesFilterable();
         bool CheckForGarageSpace();
-        int GetFirstEmptySpace();
         void AddVehicle();
         List<int> GetLargestEmptyLot();
 

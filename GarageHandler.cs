@@ -275,19 +275,6 @@ namespace CSharp_Garage_Task
             }
         }
 
-        public int GetFirstEmptySpace()
-        {
-            for (int i = 0; i < Garage.Vehicles.Length; i++)
-            {
-                if (Garage.Vehicles[i] == null)
-                {
-                    return i;
-                }
-            }
-            Helper.WriteErrorMessage("ERROR. No fitting spaces.");
-            return -1; 
-        }
-
         public List<int> GetLargestEmptyLot()
         {
             List<int> currentLot = [];
