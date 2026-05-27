@@ -100,19 +100,8 @@ namespace CSharp_Garage_Task
                     break;
                 case VehicleTypes.Boat:
                     Helper.WriteMessage("Does the boat have sails? \n1: Yes \n2: No ");
-                    int sailsInt = Helper.GetIntFromInput(1, 2);
-                    if (sailsInt == 1)
-                    {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, true);
-                    }
-                    else if (sailsInt == 2)
-                    {
-                        newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, false);
-                    }
-                    else
-                    {
-                        Helper.WriteErrorMessage("Invalid input");
-                    }
+                    bool sails = Helper.GetBoolFromInput();
+                    newVehicle = new Boat(vehicleName, vehicleID, vehicleColor, vehicleType, garageSpace, sails);
                     break;
                 case VehicleTypes.Airplane:
                     Helper.WriteMessage("How many flight hours do the plane have?");

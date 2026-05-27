@@ -78,6 +78,40 @@ namespace CSharp_Garage_Task
             }
         }
 
+        public static bool GetBoolFromInput()
+        {
+            while (true)
+            {
+                string? input = GetInput();
+                if (input != null)
+                {
+                    if (int.TryParse(input, out int outputInt))
+                    {
+                        if (outputInt == 1)
+                        {
+                            return true;
+                        }
+                        else if (outputInt == 2)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            WriteErrorMessage("Needs to fit within the specified options");
+                        }
+                    }
+                    else
+                    {
+                        WriteErrorMessage("Not an int, try again");
+                    }
+                }
+                else
+                {
+                    WriteErrorMessage("Invalid input, try again");
+                }
+            }
+        }
+
         internal static void WriteHorizontalLine()
         {
             WriteMessage("-----------------------------------", ConsoleColor.White);
